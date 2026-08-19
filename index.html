@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orientierungsberatung Bewertung · ibras®</title>
+<meta name="description" content="Strukturiertes Erstgespräch für Versicherungsmakler: Unternehmenswert ermitteln, bestehende Bewertungen einordnen oder ein Kaufpreisangebot prüfen lassen. Mit Christian und Finn Lüth, ibras® GmbH & Co. KG.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  /* -------------------------------------------------------------
+     Design Tokens (übernommen aus Makler-Insider-Treff)
+     ------------------------------------------------------------- */
+  :root {
+    --color-bg:             #FAF7F0;
+    --color-bg-soft:        #F3EFE3;
+    --color-section-medium: #E8E4D8;
+    --color-ink:            #2C2C2C;
+    --color-ink-soft:       #555555;
+    --color-ink-muted:      #8A8A85;
+    --color-rule:           #D9D4C5;
+    --color-rule-soft:      #EDE9DD;
+    --color-green:          #7DB72F;
+    --color-green-deep:     #5E8C20;
+    --color-green-tint:     #E8F0D5;
+    --color-paper:          #FFFFFF;
+
+    --font-display: "Newsreader", "Georgia", "Times New Roman", serif;
+    --font-body:    "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --max-w: 1180px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* -------------------------------------------------------------
+     Reset / Base
+     ------------------------------------------------------------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  ::selection {
+    background: var(--color-green);
+    color: var(--color-ink);
+  }
+
+  /* -------------------------------------------------------------
+     Typography
+     ------------------------------------------------------------- */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+  }
+  h2 em {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    font-family: var(--font-body);
+    letter-spacing: 0.005em;
+    line-height: 1.3;
+  }
+
+  p { margin: 0 0 1em; }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-green-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .eyebrow::before {
+    content: "//";
+    font-weight: 700;
+    color: var(--color-green);
+  }
+
+  .lead {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+    letter-spacing: -0.005em;
+  }
+
+  /* -------------------------------------------------------------
+     Layout
+     ------------------------------------------------------------- */
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  section {
+    padding-block: clamp(4.5rem, 9vw, 8rem);
+    position: relative;
+  }
+
+  .section-bg-soft { background: var(--color-bg-soft); }
+  .section-bg-paper { background: var(--color-paper); }
+  .section-bg-ink  { background: var(--color-section-medium); color: var(--color-ink); }
+  .section-bg-ink .eyebrow { color: var(--color-green-deep); }
+  .section-bg-ink .lead    { color: var(--color-ink-soft); }
+
+  /* -------------------------------------------------------------
+     ibras Logo-Akzent (Schwarz / Grün / Hellgrün-Balken)
+     ------------------------------------------------------------- */
+  .accent-bars {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .accent-bars span {
+    display: block;
+    width: 36px;
+    height: 9px;
+  }
+  .accent-bars span:nth-child(1) { background: var(--color-ink); }
+  .accent-bars span:nth-child(2) { background: var(--color-green); }
+  .accent-bars span:nth-child(3) { background: var(--color-green-tint); }
+
+  /* Signatur-Trennlinie — durchgängiges Motiv aus dem Logo-Akzent */
+  .brand-divider {
+    display: flex;
+    width: 100%;
+    height: 5px;
+  }
+  .brand-divider span { flex: 1; display: block; }
+  .brand-divider span:nth-child(1) { background: var(--color-ink); }
+  .brand-divider span:nth-child(2) { background: var(--color-green); }
+  .brand-divider span:nth-child(3) { background: var(--color-green-tint); }
+
+  /* -------------------------------------------------------------
+     Header
+     ------------------------------------------------------------- */
+  .site-header {
+    border-bottom: 1px solid var(--color-rule);
+    padding-block: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(250, 247, 240, 0.9);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .event-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    color: inherit;
+  }
+  .event-brand-title {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  .event-brand-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .header-partners {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+  }
+  .header-partners-label {
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .header-partners-list {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+  .header-partners-list a:hover { color: var(--color-green-deep); }
+  .header-partners-list sup {
+    font-size: 0.55em;
+    vertical-align: super;
+  }
+  .header-partners-divider {
+    color: var(--color-green);
+    font-weight: 400;
+  }
+  @media (max-width: 640px) {
+    .header-partners { align-items: flex-start; }
+    .event-brand-sub { display: none; }
+  }
+
+  /* -------------------------------------------------------------
+     Hero
+     ------------------------------------------------------------- */
+  .hero {
+    padding-top: clamp(4rem, 7vw, 6rem);
+    padding-bottom: clamp(4rem, 7vw, 6rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 340px;
+    height: 340px;
+    background: var(--color-green-tint);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 5rem;
+      align-items: end;
+    }
+  }
+  .hero h1 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--color-green-deep);
+    font-weight: 500;
+  }
+  .hero .lead {
+    max-width: 40ch;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.1rem 2rem;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .hero-cta:hover {
+    background: var(--color-green);
+    color: var(--color-ink);
+    transform: translateY(-1px);
+  }
+  .hero-cta::after {
+    content: "→";
+    transition: transform 0.2s ease;
+  }
+  .hero-cta:hover::after { transform: translateX(4px); }
+
+  /* Faktenkarte rechts im Hero */
+  .fact-card {
+    position: relative;
+    z-index: 1;
+    background: var(--color-paper);
+    padding: 2.2rem;
+    border-top: 3px solid var(--color-green);
+    box-shadow: 0 24px 48px -28px rgba(44, 44, 44, 0.28);
+  }
+  .fact-card .accent-bars { margin-bottom: 1.5rem; }
+  .fact-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-rule);
+    align-items: baseline;
+  }
+  .fact-row:last-child { border-bottom: none; }
+  .fact-row dt {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-muted);
+    font-weight: 700;
+  }
+  .fact-row dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-ink);
+    line-height: 1.3;
+  }
+  .fact-row dd small {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-ink-soft);
+    font-weight: 400;
+    margin-top: 2px;
+    letter-spacing: 0;
+  }
+  .fact-row-highlight {
+    background: var(--color-green-tint);
+    margin: 0 -2.2rem;
+    padding-left: 2.2rem;
+    padding-right: 2.2rem;
+  }
+  .fact-row-highlight dt {
+    color: var(--color-green-deep);
+  }
+
+  /* -------------------------------------------------------------
+     Generische Section-Header
+     ------------------------------------------------------------- */
+  .section-head {
+    max-width: 720px;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .section-head .eyebrow { margin-bottom: 1.2rem; }
+  .section-head h2 { margin-bottom: 1rem; }
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--color-green-deep);
+    font-weight: 500;
+  }
+
+  /* -------------------------------------------------------------
+     Intro / Narrative
+     ------------------------------------------------------------- */
+  .narrative {
+    max-width: 720px;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+  }
+  .narrative p { margin-bottom: 1.4em; }
+  .narrative .pull {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    padding: 1.6rem 0 1.6rem 1.6rem;
+    border-left: 3px solid var(--color-green);
+    margin: 2rem 0;
+  }
+
+  /* -------------------------------------------------------------
+     Situationen (2 Spalten, analog Verweis-Kacheln, ohne CTA)
+     ------------------------------------------------------------- */
+  .situations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  @media (min-width: 780px) {
+    .situations-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  .situation-card {
+    background: var(--color-paper);
+    padding: 2.4rem 2.2rem;
+    border: 1px solid var(--color-rule);
+    border-top: 3px solid var(--color-green);
+  }
+  .situation-num {
+    font-size: 0.85rem;
+    color: var(--color-green-deep);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin-bottom: 1.1rem;
+  }
+  .situation-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.01em;
+  }
+  .situation-card p {
+    color: var(--color-ink-soft);
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* -------------------------------------------------------------
+     Disclosure — "Mehr lesen" / progressives Aufklappen
+     ------------------------------------------------------------- */
+  .disclosure {
+    margin-top: 1.8rem;
+  }
+  .disclosure summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-green-deep);
+    padding-block: 0.3rem;
+    user-select: none;
+  }
+  .disclosure summary::-webkit-details-marker { display: none; }
+  .disclosure summary::before {
+    content: "+";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-green);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 400;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .disclosure[open] summary::before {
+    content: "–";
+  }
+  .disclosure summary:hover { color: var(--color-ink); }
+  .disclosure-content {
+    padding-top: 1.3rem;
+    max-width: 68ch;
+  }
+  .disclosure-block {
+    background: var(--color-paper);
+    padding: 1.6rem 2rem;
+    border-left: 4px solid var(--color-green);
+    margin-top: 2.5rem;
+  }
+  .disclosure-block summary { font-size: 0.95rem; text-transform: none; letter-spacing: 0; }
+  .disclosure-block[open] summary { margin-bottom: 0.2rem; }
+  .question-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--color-ink-soft);
+    max-width: none;
+  }
+  .question-list li {
+    padding-block: 0.35rem;
+    font-size: 0.96rem;
+  }
+
+  /* -------------------------------------------------------------
+     Speakers
+     ------------------------------------------------------------- */
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 720px) {
+    .speakers-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  }
+  .speaker-card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .speaker-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--color-bg-soft);
+    overflow: hidden;
+    position: relative;
+  }
+  .speaker-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  /* Platzhalter, solange noch kein echtes Foto hinterlegt ist */
+  .speaker-photo.no-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(135deg, var(--color-green-tint) 0%, var(--color-bg-soft) 100%);
+  }
+  .speaker-photo.no-photo::before {
+    content: attr(data-initials);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 3.4rem;
+    color: var(--color-green-deep);
+    letter-spacing: 0.02em;
+  }
+  .speaker-content {
+    padding: 2rem 2.5rem 2.5rem;
+  }
+  .speaker-card .role {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-green-deep);
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+  }
+  .speaker-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .speaker-card .title-line {
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .speaker-card p {
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .speaker-card .vita {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .speaker-card .vita li {
+    position: relative;
+    padding-left: 1.3rem;
+    margin-bottom: 0.55rem;
+    color: var(--color-ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+  .speaker-card .vita li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-green);
+    border-radius: 50%;
+  }
+  .speaker-card .vita li:last-child { margin-bottom: 0; }
+
+  /* -------------------------------------------------------------
+     Ablauf-Timeline
+     ------------------------------------------------------------- */
+  .program {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 2rem;
+  }
+  .program-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 2.5rem;
+    padding-block: 1.8rem;
+    border-top: 1px solid var(--color-rule);
+    align-items: baseline;
+  }
+  .program-row:last-child { border-bottom: 1px solid var(--color-rule); }
+  .program-row .time {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-green-deep);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .program-row .time-sep {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+    line-height: 1;
+    margin: 1px 0;
+  }
+  @media (max-width: 540px) {
+    .program-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .program-row .time { font-size: 1.2rem; }
+    .program-row .time-sep { display: inline; margin: 0 0.2rem; }
+  }
+  .program-row .item h4 {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0;
+  }
+  .program-row .item p {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* -------------------------------------------------------------
+     Leistungen (Icon-Grid)
+     ------------------------------------------------------------- */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--color-rule);
+    border-left: 1px solid var(--color-rule);
+  }
+  @media (min-width: 560px) {
+    .topics-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 980px) {
+    .topics-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .topic {
+    padding: 1.9rem 1.6rem;
+    border-right: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .topic .topic-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .topic .num {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--color-green-deep);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .topic h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .topic p {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  /* -------------------------------------------------------------
+     Praktische Info / Investition
+     ------------------------------------------------------------- */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 880px) {
+    .info-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  }
+  .info-block {
+    padding: 2.2rem;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+  }
+  .info-block h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  .info-list { list-style: none; padding: 0; margin: 0; }
+  .info-list li {
+    padding-block: 0.8rem;
+    border-bottom: 1px dashed var(--color-rule);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list .label {
+    color: var(--color-ink-soft);
+    font-size: 0.92rem;
+  }
+  .info-list .value {
+    font-weight: 700;
+    text-align: right;
+    font-size: 0.95rem;
+  }
+  .info-list .value-big {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-green-deep);
+    letter-spacing: -0.01em;
+  }
+  .info-note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    line-height: 1.55;
+  }
+  .info-note a { color: var(--color-green-deep); border-bottom: 1px solid var(--color-green); }
+  .info-note strong { color: var(--color-ink-soft); }
+
+  /* -------------------------------------------------------------
+     Kontakt — Verweis-Kacheln
+     ------------------------------------------------------------- */
+  .booking-section {
+    background: var(--color-green-tint);
+  }
+  .booking-head {
+    max-width: 760px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .booking-head .eyebrow {
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+  .booking-head h2 { margin-bottom: 1rem; }
+
+  .referral-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 880px) {
+    .referral-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  .referral-card {
+    background: var(--color-paper);
+    padding: 2.6rem 2.4rem;
+    border: 1px solid var(--color-rule);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .referral-num {
+    font-size: 0.85rem;
+    color: var(--color-green-deep);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin-bottom: 1.2rem;
+  }
+  .referral-card h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .referral-card > p {
+    color: var(--color-ink-soft);
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+  }
+  .referral-meta {
+    list-style: none;
+    margin: 0 0 1.8rem;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .referral-meta li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+    padding-block: 0.4rem;
+    font-size: 0.9rem;
+    align-items: baseline;
+  }
+  .referral-meta li span {
+    color: var(--color-ink-muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+  }
+  .referral-meta li strong {
+    color: var(--color-ink);
+    font-weight: 400;
+  }
+  .referral-cta {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.9rem;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-weight: 700;
+    font-size: 0.86rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  }
+  .referral-cta::after {
+    content: "→";
+    transition: transform 0.2s ease;
+  }
+  .referral-cta:hover {
+    background: var(--color-green);
+    color: var(--color-ink);
+    transform: translateY(-1px);
+  }
+  .referral-cta:hover::after { transform: translateX(4px); }
+  .referral-note {
+    max-width: 760px;
+    margin: 3rem auto 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    text-align: center;
+  }
+  .referral-note strong {
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+  .referral-note a {
+    color: var(--color-green-deep);
+    border-bottom: 1px solid var(--color-green);
+    transition: color 0.15s ease;
+  }
+  .referral-note a:hover {
+    color: var(--color-ink);
+  }
+
+  /* -------------------------------------------------------------
+     Kontaktformular
+     ------------------------------------------------------------- */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (min-width: 940px) {
+    .contact-layout { grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
+  }
+
+  .direct-contact {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    padding: 2.2rem;
+  }
+  .direct-contact h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.4rem;
+  }
+  .direct-contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-block: 1rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .direct-contact-item:first-of-type { border-top: none; padding-top: 0; }
+  .direct-contact-item span {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-muted);
+    font-weight: 700;
+  }
+  .direct-contact-item a,
+  .direct-contact-item strong {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--color-ink);
+  }
+  .direct-contact-item a:hover { color: var(--color-green-deep); }
+  .direct-contact-note {
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--color-rule);
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+  }
+
+  /* -------------------------------------------------------------
+     Footer
+     ------------------------------------------------------------- */
+  .site-footer {
+    background: var(--color-section-medium);
+    color: var(--color-ink);
+    padding-block: 4rem;
+  }
+  .footer-intro {
+    max-width: 680px;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .footer-intro .accent-bars {
+    margin-bottom: 1.2rem;
+  }
+  .footer-intro h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .footer-intro p {
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 720px) {
+    .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; }
+  }
+  .footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-green-deep);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .footer-col p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+  .footer-col strong {
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+  .footer-col a {
+    color: var(--color-ink-soft);
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .footer-col a:hover {
+    color: var(--color-green-deep);
+    border-bottom-color: var(--color-green);
+  }
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--color-rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+  }
+  .footer-bottom a {
+    color: var(--color-ink-muted);
+    transition: color 0.15s ease;
+  }
+  .footer-bottom a:hover { color: var(--color-green-deep); }
+
+  /* -------------------------------------------------------------
+     Reveal on Load
+     ------------------------------------------------------------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealUp 0.9s ease-out forwards;
+  }
+  .reveal-1 { animation-delay: 0.05s; }
+  .reveal-2 { animation-delay: 0.2s; }
+  .reveal-3 { animation-delay: 0.35s; }
+  .reveal-4 { animation-delay: 0.5s; }
+
+  @keyframes revealUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================================================================
+     HEADER
+     ================================================================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="event-brand" aria-label="ibras Startseite">
+      <span class="accent-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span>
+        <span class="event-brand-title">ibras<sup>®</sup></span>
+        <span class="event-brand-sub">Orientierungsberatung · Bewertung</span>
+      </span>
+    </a>
+    <div class="header-partners" aria-label="Kontakt">
+      <span class="header-partners-label">Kontakt</span>
+      <div class="header-partners-list">
+        <a href="tel:+493882788868">038827 / 88868</a>
+        <span class="header-partners-divider" aria-hidden="true">·</span>
+        <a href="mailto:info@ibras.de">info@ibras.de</a>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- =================================================================
+     HERO
+     ================================================================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="reveal reveal-1">
+        <span class="eyebrow">Orientierungsberatung · Bewertung</span>
+      </div>
+      <h1 class="reveal reveal-2">
+        Was ist Ihr Bestand <em>wirklich wert?</em>
+      </h1>
+      <p class="lead reveal reveal-3">
+        Ein strukturiertes Erstgespräch für Versicherungsmakler, die ihren Unternehmenswert ermitteln, eine bestehende Bewertung einordnen oder ein konkretes Kaufpreisangebot prüfen lassen möchten. Mit Christian und Finn Lüth.
+      </p>
+      <a href="#kontakt" class="hero-cta reveal reveal-4">Beratungstermin anfragen</a>
+    </div>
+
+    <aside class="fact-card reveal reveal-3" aria-label="Eckdaten der Orientierungsberatung">
+      <span class="accent-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <dl style="margin:0;">
+        <div class="fact-row">
+          <dt>Format</dt>
+          <dd>Videokonferenz<small>persönliches Gespräch</small></dd>
+        </div>
+        <div class="fact-row">
+          <dt>Dauer</dt>
+          <dd>90 Minuten<small>zzgl. individueller Vorbereitung</small></dd>
+        </div>
+        <div class="fact-row">
+          <dt>Ergebnis</dt>
+          <dd>Fundierte Einordnung<small>mit schriftlicher Zusammenfassung</small></dd>
+        </div>
+        <div class="fact-row">
+          <dt>Beitrag</dt>
+          <dd>731,25 €<small>regulär · inkl. MwSt.</small></dd>
+        </div>
+        <div class="fact-row fact-row-highlight">
+          <dt>Premium</dt>
+          <dd>585,00 €<small>VersicherungsJournal Premium-Abonnenten</small></dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- =================================================================
+     WORUM ES GEHT
+     ================================================================= -->
+<section class="section-bg-soft">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Worum es geht</span>
+      <h2>Der Unternehmenswert ist keine <em>feste Zahl.</em></h2>
+    </div>
+    <div class="narrative">
+      <p>
+        Der Wert eines Versicherungsmaklerunternehmens ist mehr als eine Zahl. Er entsteht aus Substanz, Struktur, Vertragslogik, Markt und Käuferperspektive — und hängt maßgeblich davon ab, welche Annahmen und Rahmenbedingungen einer Bewertung zugrunde gelegt werden.
+      </p>
+      <blockquote class="pull">
+        Ohne Verständnis von Bewertungslogik, Vertragsmechanik und Käuferperspektive entstehen Fehleinschätzungen, Wertverluste und Vereinbarungen, deren wirtschaftliche Folgen erst Jahre später sichtbar werden.
+      </blockquote>
+
+      <details class="disclosure">
+        <summary>Hintergrund ausführlicher lesen</summary>
+        <div class="disclosure-content">
+          <p>
+            Unternehmenswert und Kaufpreis werden im Maklermarkt häufig gleichgesetzt — in der Praxis sind sie es selten. Multiples sind ein Ausgangspunkt, nicht das Ergebnis.
+          </p>
+          <p>
+            Professionelle Erwerber bewerten anders, als Verkäufer es häufig erwarten. Sie kalkulieren mit eigenen Margen, prüfen Risiken im Bestand und steuern die Kaufpreishöhe über Vertragsstruktur und erfolgsabhängige Parameter — etwa Earn-out-Regelungen und Anpassungsklauseln. Wer diese Mechanik kennt, verhandelt klarer.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     FÜR WEN — ZWEI TYPISCHE SITUATIONEN
+     ================================================================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Für wen</span>
+      <h2>Zwei typische Situationen — <em>ein klarer Weg zur Einordnung.</em></h2>
+      <p class="lead" style="margin-top: 1rem;">
+        Wir begleiten Sie unabhängig davon, an welchem Punkt Sie heute stehen.
+      </p>
+    </div>
+
+    <div class="situations-grid">
+      <article class="situation-card">
+        <div class="situation-num">Situation 01</div>
+        <h3>Sie stehen am Anfang.</h3>
+        <p>
+          Sie möchten verstehen, wie ein Versicherungsmaklerunternehmen bewertet wird — und welche Strukturmerkmale wertbestimmend sind, noch bevor erste Gespräche geführt werden.
+        </p>
+      </article>
+
+      <article class="situation-card">
+        <div class="situation-num">Situation 02</div>
+        <h3>Sie haben bereits eine Bewertung oder ein Kaufpreisangebot.</h3>
+        <p>
+          Wir prüfen die Herleitung, hinterfragen Annahmen und ordnen das Ergebnis aus Markt- und Transaktionssicht ein — und ob es zu Ihrem tatsächlichen Wert passt.
+        </p>
+      </article>
+    </div>
+
+    <details class="disclosure disclosure-block">
+      <summary>Welche Fragen die Beratung konkret beantwortet</summary>
+      <div class="disclosure-content">
+        <ul class="question-list">
+          <li>Was ist mein Unternehmen tatsächlich wert — und woraus ergibt sich dieser Wert?</li>
+          <li>Wie entstehen Kaufpreise im Maklermarkt — und warum sind Multiples nur ein Ausgangspunkt?</li>
+          <li>Welche Vertrags- und Zahlungsmechanismen beeinflussen den tatsächlichen Erlös?</li>
+          <li>Ist eine vorliegende Bewertung oder ein Kaufpreisangebot tragfähig?</li>
+          <li>Welche Faktoren können den erzielbaren Marktpreis erhöhen oder reduzieren?</li>
+          <li>Welche Einschätzung hilft mir, fundierte Entscheidungen zu treffen?</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- =================================================================
+     LEISTUNGEN — auf dunklem Hintergrund
+     ================================================================= -->
+<section class="section-bg-ink">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Leistungen</span>
+      <h2>Acht Perspektiven auf <em>Ihren Unternehmenswert.</em></h2>
+    </div>
+
+    <div class="topics-grid">
+      <div class="topic">
+        <img class="topic-icon" src="icon-unternehmenswert-ermitteln.png" alt="">
+        <div class="num">01</div>
+        <h4>Unternehmenswert ermitteln</h4>
+        <p>Realistische Bewertung Ihres Maklerunternehmens auf belastbarer Grundlage.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-kaufpreisstrukturen.png" alt="">
+        <div class="num">02</div>
+        <h4>Kaufpreisstrukturen verstehen</h4>
+        <p>Wie Kaufpreise im Maklermarkt tatsächlich entstehen — und wovon sie abhängen.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-kaeuferperspektive.png" alt="">
+        <div class="num">03</div>
+        <h4>Käuferperspektive verstehen</h4>
+        <p>Wie professionelle Erwerber rechnen, kalkulieren und verhandeln.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-markteinschaetzung.png" alt="">
+        <div class="num">04</div>
+        <h4>Unabhängige Markteinschätzung</h4>
+        <p>Einordnung ohne Eigeninteresse an einer bestimmten Transaktion.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-bewertung-belastbar.png" alt="">
+        <div class="num">05</div>
+        <h4>Bewertung belastbar einordnen</h4>
+        <p>Ganzheitliche Betrachtung bestehender Bewertungen oder Angebote.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-fehleinschaetzungen.png" alt="">
+        <div class="num">06</div>
+        <h4>Fehleinschätzungen vermeiden</h4>
+        <p>Typische Stolperfallen bei der eigenen Kaufpreisermittlung erkennen.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-diskretion.png" alt="">
+        <div class="num">07</div>
+        <h4>Absolute Diskretion</h4>
+        <p>Vertraulicher Rahmen für ein sensibles Thema.</p>
+      </div>
+      <div class="topic">
+        <img class="topic-icon" src="icon-sicherheit.png" alt="">
+        <div class="num">08</div>
+        <h4>Sicherheit für Ihre Entscheidung</h4>
+        <p>Damit Sie nicht unter Wert verkaufen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     WER BERÄT
+     ================================================================= -->
+<section class="section-bg-soft">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Wer berät</span>
+      <h2>Seit 2004 spezialisiert auf <em>Maklernachfolge.</em></h2>
+      <p class="lead" style="margin-top: 1rem;">
+        Die ibras® wurde 2004 als einer der ersten Dienstleister gegründet, der sich ganz auf Beratung, Bewertung und Begleitung von Versicherungsmakler-Transaktionen konzentriert.
+      </p>
+    </div>
+
+    <div class="speakers-grid">
+      <article class="speaker-card">
+        <div class="speaker-photo" data-initials="CL">
+          <img src="christian-lueth.jpg" alt="Christian Lüth" onerror="this.parentElement.classList.add('no-photo'); this.remove();">
+        </div>
+        <div class="speaker-content">
+          <div class="role">Sachverständiger · ibras</div>
+          <h3>Christian Lüth</h3>
+          <p class="title-line">Geschäftsführender Gesellschafter ibras® GmbH &amp; Co. KG</p>
+          <details class="disclosure">
+            <summary>Mehr über Christian Lüth</summary>
+            <div class="disclosure-content">
+              <ul class="vita">
+                <li>Jahrgang 1964</li>
+                <li>Seit 1984 in der Versicherungswirtschaft tätig</li>
+                <li>Über 30-jährige Erfahrung als Versicherungsmakler</li>
+                <li>Sachverständiger für Unternehmens- und Bestandsbewertung</li>
+                <li>Weiterbildung beim Institut für Sachverständigenwesen e. V. Köln (IfS)</li>
+                <li>Autor zahlreicher Fachbeiträge</li>
+                <li>Gründungsgesellschafter der ibras® im Jahr 2004</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="speaker-card">
+        <div class="speaker-photo" data-initials="FL">
+          <img src="finn-lueth.jpg" alt="Finn Lüth" onerror="this.parentElement.classList.add('no-photo'); this.remove();">
+        </div>
+        <div class="speaker-content">
+          <div class="role">M&amp;A-Berater · ibras</div>
+          <h3>Finn Lüth</h3>
+          <p class="title-line">Consultant ibras® GmbH &amp; Co. KG, B.A. Business Administration</p>
+          <details class="disclosure">
+            <summary>Mehr über Finn Lüth</summary>
+            <div class="disclosure-content">
+              <ul class="vita">
+                <li>Jahrgang 1989</li>
+                <li>Seit 2005 in der Versicherungswirtschaft tätig</li>
+                <li>Ausbildung als Versicherungskaufmann</li>
+                <li>Betriebswirtschaftliches Studium (Bachelor of Arts, B.A.)</li>
+                <li>Langjährige Tätigkeit in Versicherungsmaklerunternehmen</li>
+                <li>Seit 2009 als M&amp;A-Berater tätig — ausschließlich für Versicherungsmakler</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     ABLAUF
+     ================================================================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Ablauf</span>
+      <h2>Drei Schritte zur <em>fundierten Einordnung.</em></h2>
+    </div>
+
+    <div class="program">
+      <div class="program-row">
+        <div class="time">01</div>
+        <div class="item">
+          <h4>Vorbereitung</h4>
+          <p>Individueller Fragen- und Unterlagenkatalog. Gezielte Vorbereitung auf Ihr persönliches Gespräch — abgestimmt auf Ihre Ausgangssituation.</p>
+        </div>
+      </div>
+      <div class="program-row">
+        <div class="time">02</div>
+        <div class="item">
+          <h4>Beratung — 90 Minuten, Videokonferenz</h4>
+          <p>Analyse Ihrer aktuellen Ausgangssituation und der wertbestimmenden Faktoren, Einordnung im Marktkontext, Käuferblick und Kaufpreislogik. Optional: kritische Würdigung bereits vorliegender Bewertungen.</p>
+        </div>
+      </div>
+      <div class="program-row">
+        <div class="time">03</div>
+        <div class="item">
+          <h4>Ergebnis</h4>
+          <p>Fundierte Einordnung Ihres Unternehmenswerts mit konkreten Handlungsempfehlungen und kompakter schriftlicher Zusammenfassung als Entscheidungsgrundlage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     PRAKTISCHE INFO / INVESTITION
+     ================================================================= -->
+<section class="section-bg-soft">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Praktisches</span>
+      <h2>Format, Ablauf &amp; <em>Investition.</em></h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Format &amp; Ablauf</h3>
+        <ul class="info-list">
+          <li><span class="label">Format</span><span class="value">Videokonferenz</span></li>
+          <li><span class="label">Dauer</span><span class="value">90 Minuten</span></li>
+          <li><span class="label">Vorbereitung</span><span class="value">Individueller Fragenkatalog</span></li>
+          <li><span class="label">Ergebnis</span><span class="value">Schriftliche Zusammenfassung</span></li>
+        </ul>
+        <p class="info-note">
+          Die Orientierungsberatung schafft eine fundierte Grundlage, um Unternehmenswert, Kaufpreislogik und bestehende Bewertungen realistisch einzuordnen. Sie ersetzt <strong>keine</strong> vollständige Unternehmensbewertung im Sinne anerkannter Bewertungsstandards.
+        </p>
+      </div>
+
+      <div class="info-block">
+        <h3>Investition</h3>
+        <ul class="info-list">
+          <li><span class="label">Regulär</span><span class="value value-big">731,25 €</span></li>
+          <li><span class="label">VersicherungsJournal Premium-Abonnenten</span><span class="value value-big">585,00 €</span></li>
+          <li><span class="label">Enthalten</span><span class="value">Vorbereitung,<br>Beratung, Zusammenfassung</span></li>
+        </ul>
+        <p class="info-note">
+          Alle Preise inkl. MwSt. <strong>Ihr Vorteil:</strong> Bei erfolgreichem Abschluss einer Transaktion wird Ihre Investition vollständig angerechnet.
+          Wer noch kein Premium-Abonnent ist, kann sich
+          <a href="https://www.versicherungsjournal.de/product/premiumabo-251" target="_blank" rel="noopener">jetzt anmelden</a>
+          und erhält den Vorteilspreis ebenfalls.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     KONTAKT & NÄCHSTER SCHRITT
+     ================================================================= -->
+<section id="kontakt" class="booking-section">
+  <div class="container">
+    <div class="booking-head">
+      <span class="eyebrow">Kontakt &amp; nächster Schritt</span>
+      <h2>Ein kurzer Weg — <em>eine persönliche Anfrage.</em></h2>
+      <p class="lead">
+        Nutzen Sie das bestehende ibras-Kontaktformular oder rufen Sie direkt an — wir melden uns zeitnah mit einem Terminvorschlag für Ihre Orientierungsberatung.
+      </p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="referral-card">
+        <h3>Zum Kontaktformular</h3>
+        <p>
+          Wählen Sie im Formular als Anliegen <strong>„Orientierungsberatung Bewertung"</strong> — das Formular ist bereits genau auf dieses Thema vorbereitet.
+        </p>
+        <ul class="referral-meta">
+          <li><span>Ansprechpartner</span><strong>Christian &amp; Finn Lüth</strong></li>
+          <li><span>Antwort</span><strong>i. d. R. innerhalb von 2 Werktagen</strong></li>
+          <li><span>Diskretion</span><strong>selbstverständlich</strong></li>
+        </ul>
+        <a class="referral-cta" href="https://www.ibras.de/dienstleistungen/orientierungs-beratung-1/orientierungs-beratung-sonderaktion-bewertung/">Zum Kontaktformular</a>
+      </div>
+
+      <aside class="direct-contact">
+        <h3>Direkt erreichbar</h3>
+        <div class="direct-contact-item">
+          <span>Telefon</span>
+          <a href="tel:+493882788868">038827 / 88868</a>
+        </div>
+        <div class="direct-contact-item">
+          <span>E-Mail</span>
+          <a href="mailto:info@ibras.de?subject=Anfrage%20Orientierungsberatung%20Bewertung">info@ibras.de</a>
+        </div>
+        <div class="direct-contact-item">
+          <span>Ansprechpartner</span>
+          <strong>Christian &amp; Finn Lüth</strong>
+        </div>
+        <div class="direct-contact-item">
+          <span>Antwort</span>
+          <strong>i. d. R. innerhalb von 2 Werktagen</strong>
+        </div>
+        <p class="direct-contact-note">
+          Die Orientierungsberatung schafft eine fundierte Grundlage, um Unternehmenswert, Kaufpreislogik und bestehende Bewertungen realistisch einzuordnen. Sie ersetzt keine vollständige Unternehmensbewertung im Sinne anerkannter Bewertungsstandards. Alle Angaben werden selbstverständlich vertraulich behandelt.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+<!-- =================================================================
+     FOOTER
+     ================================================================= -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-intro">
+      <span class="accent-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <h3>ibras® GmbH &amp; Co. KG</h3>
+      <p>
+        Spezialisiert auf Maklernachfolge und Bestandsbewertung — seit 2004 ausschließlich für Versicherungsmakler. ibras vertritt ausschließlich Verkäufer.
+      </p>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>
+          <strong>ibras<sup>®</sup> GmbH &amp; Co. KG</strong><br>
+          Am Park 2, 23942 Neuenhagen bei Lübeck<br>
+          Tel. <a href="tel:+493882788868">038827 / 88868</a><br>
+          <a href="mailto:info@ibras.de">info@ibras.de</a><br>
+          <a href="https://www.ibras.de" target="_blank" rel="noopener">ibras.de</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Orientierungsberatung</h4>
+        <p>
+          Videokonferenz · 90 Minuten<br>
+          731,25 € regulär<br>
+          585,00 € für Premium-Abonnenten<br>
+          Anrechnung bei erfolgreichem Transaktionsabschluss
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <p>
+          <a href="https://www.ibras.de/about/" target="_blank" rel="noopener">Impressum</a><br>
+          <a href="https://www.ibras.de/j/privacy" target="_blank" rel="noopener">Datenschutz</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 · ibras® GmbH &amp; Co. KG</span>
+      <span>
+        <a href="https://www.ibras.de/about/" target="_blank" rel="noopener" style="margin-right: 1.2rem;">Impressum</a>
+        <a href="https://www.ibras.de/j/privacy" target="_blank" rel="noopener">Datenschutz</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
