@@ -188,8 +188,7 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    backdrop-filter: blur(8px);
-    background: rgba(250, 247, 240, 0.9);
+    background: var(--color-bg);
   }
   .header-inner {
     display: flex;
@@ -317,8 +316,8 @@
     transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
   }
   .hero-cta:hover {
-    background: var(--color-green);
-    color: var(--color-ink);
+    background: var(--color-green-deep);
+    color: var(--color-bg);
     transform: translateY(-1px);
   }
   .hero-cta::after {
@@ -882,8 +881,8 @@
     transition: transform 0.2s ease;
   }
   .referral-cta:hover {
-    background: var(--color-green);
-    color: var(--color-ink);
+    background: var(--color-green-deep);
+    color: var(--color-bg);
     transform: translateY(-1px);
   }
   .referral-cta:hover::after { transform: translateX(4px); }
@@ -1110,7 +1109,9 @@
      Große, zentrierte Zitat-Sektion (Signatur-Moment)
      ------------------------------------------------------------- */
   .quote-band {
-    background: var(--color-green-tint);
+    background:
+      linear-gradient(rgba(232, 240, 213, 0.9), rgba(232, 240, 213, 0.9)),
+      url('buero-haende-warten-laptop.jpg') center 60% / cover no-repeat;
     position: relative;
     overflow: hidden;
   }
