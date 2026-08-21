@@ -29,6 +29,6 @@ npx serve .
 - `index.html` — komplette Seite (Inline-CSS, keine externen Abhängigkeiten
   außer der Google-Font "Newsreader"/"Lato")
 - `icon-*.png` — Leistungs-Icons (aus dem Original-Flyer extrahiert)
-- Für Porträtfotos: `christian-lueth.jpg` / `finn-lueth.jpg` in diesen
-  Ordner legen — die Seite bindet sie automatisch ein, sobald sie
-  vorhanden sind (siehe Bild-Anleitung).
+- Für das Porträtfoto: `christian-lueth.jpg` in diesen Ordner legen —
+  die Seite bindet es automatisch ein, sobald es vorhanden ist (siehe
+  Bild-Anleitung).
