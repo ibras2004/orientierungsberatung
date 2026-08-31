@@ -953,6 +953,62 @@
   }
 
   /* -------------------------------------------------------------
+     Anfrage-Formular
+     ------------------------------------------------------------- */
+  .form-card {
+    background: var(--color-paper);
+    padding: 2.6rem 2.4rem;
+    border: 1px solid var(--color-rule);
+  }
+  .form-field { margin-bottom: 1.3rem; }
+  .form-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--color-ink-soft);
+    margin-bottom: 0.4rem;
+  }
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 0.98rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-rule);
+    background: var(--color-bg);
+    color: var(--color-ink);
+    transition: border-color 0.15s ease;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--color-green);
+  }
+  .form-field textarea { resize: vertical; }
+  .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    margin-bottom: 1.6rem;
+  }
+  .form-check input { margin-top: 0.25rem; accent-color: var(--color-green-deep); }
+  .form-check a { color: var(--color-green-deep); border-bottom: 1px solid var(--color-green); }
+  .form-success {
+    display: none;
+    background: var(--color-green-tint);
+    border-left: 4px solid var(--color-green);
+    padding: 1.4rem 1.6rem;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    margin-bottom: 1.6rem;
+  }
+  .form-success.is-visible { display: block; }
+  .form-card.is-submitted .booking-form { display: none; }
+
+  /* -------------------------------------------------------------
      Footer
      ------------------------------------------------------------- */
   .site-footer {
@@ -1636,22 +1692,43 @@
       <span class="eyebrow">Kontakt &amp; nächster Schritt</span>
       <h2>Ein kurzer Weg — <em>eine persönliche Anfrage.</em></h2>
       <p class="lead">
-        Nutzen Sie das bestehende ibras-Kontaktformular oder rufen Sie direkt an — wir melden uns zeitnah mit einem Terminvorschlag für Ihre Orientierungsberatung.
+        Füllen Sie das Formular aus oder rufen Sie direkt an — wir melden uns zeitnah mit einem Terminvorschlag für Ihre Orientierungsberatung.
       </p>
     </div>
 
     <div class="contact-layout reveal-scroll-group">
-      <div class="referral-card">
-        <h3>Zum Kontaktformular</h3>
-        <p>
-          Wählen Sie im Formular als Anliegen <strong>„Orientierungsberatung Bewertung"</strong> — das Formular ist bereits genau auf dieses Thema vorbereitet.
-        </p>
-        <ul class="referral-meta">
-          <li><span>Ansprechpartner</span><strong>Christian Lüth</strong></li>
-          <li><span>Antwort</span><strong>i. d. R. innerhalb von 2 Werktagen</strong></li>
-          <li><span>Diskretion</span><strong>selbstverständlich</strong></li>
-        </ul>
-        <a class="referral-cta" href="https://www.ibras.de/dienstleistungen/orientierungs-beratung-1/orientierungs-beratung-sonderaktion-bewertung/">Zum Kontaktformular</a>
+      <div class="form-card" id="anfrage-form-card">
+        <div class="form-success" role="status">
+          Vielen Dank für Ihre Anfrage. Wir melden uns i. d. R. innerhalb von 2 Werktagen mit einem Terminvorschlag.
+        </div>
+        <form class="booking-form" action="https://formsubmit.co/info@ibras.de" method="POST">
+          <input type="hidden" name="_subject" value="Neue Anfrage: Orientierungsberatung Bewertung">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://orientierungsberatung.de/?gesendet=1#kontakt">
+
+          <div class="form-field">
+            <label for="af-name">Vor- und Nachname *</label>
+            <input type="text" id="af-name" name="Name" required>
+          </div>
+          <div class="form-field">
+            <label for="af-email">E-Mail-Adresse *</label>
+            <input type="email" id="af-email" name="E-Mail" required>
+          </div>
+          <div class="form-field">
+            <label for="af-telefon">Telefonnummer</label>
+            <input type="tel" id="af-telefon" name="Telefon">
+          </div>
+          <div class="form-field">
+            <label for="af-nachricht">Ihre Nachricht (optional)</label>
+            <textarea id="af-nachricht" name="Nachricht" rows="4"></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="af-privacy" required>
+            <label for="af-privacy" style="margin: 0; font-weight: 400;">Es gilt die <a href="https://www.ibras.de/j/privacy" target="_blank" rel="noopener">Datenschutzerklärung</a> der ibras® GmbH &amp; Co. KG.</label>
+          </div>
+          <button type="submit" class="hero-cta">Beratungstermin anfragen</button>
+        </form>
       </div>
 
       <aside class="direct-contact">
@@ -1755,6 +1832,17 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
     targets.forEach(function (el) { observer.observe(el); });
+  })();
+
+  // Erfolgsmeldung anzeigen, wenn das Anfrage-Formular per FormSubmit
+  // gesendet und mit ?gesendet=1 hierher zurückgeleitet wurde.
+  (function () {
+    if (new URLSearchParams(window.location.search).get('gesendet') !== '1') return;
+    var card = document.getElementById('anfrage-form-card');
+    if (!card) return;
+    card.classList.add('is-submitted');
+    var success = card.querySelector('.form-success');
+    if (success) success.classList.add('is-visible');
   })();
 </script>
 </body>
