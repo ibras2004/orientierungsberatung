@@ -170,6 +170,31 @@
       linear-gradient(rgba(250, 247, 240, 0.7), rgba(250, 247, 240, 0.82)),
       url('schreibtisch-planung.jpg') center 42% / cover no-repeat;
   }
+  .worum-band {
+    background:
+      linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
+      url('kompass-landkarte.jpg') center 40% / cover no-repeat;
+  }
+  .fuerwen-band {
+    background:
+      linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
+      url('steine-balance.jpg') center 42% / cover no-repeat;
+  }
+  .werberaet-band {
+    background:
+      linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
+      url('kompass-hand-goldene-stunde.jpg') center 38% / cover no-repeat;
+  }
+  .ablauf-band {
+    background:
+      linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
+      url('strasse-horizont.jpg') center 55% / cover no-repeat;
+  }
+  .booking-section.naechster-schritt-band {
+    background:
+      linear-gradient(rgba(232, 240, 213, 0.68), rgba(232, 240, 213, 0.8)),
+      url('gipfel-weitblick.jpg') center 40% / cover no-repeat;
+  }
 
   /* -------------------------------------------------------------
      ibras Logo-Akzent (Schwarz / Grün / Hellgrün-Balken)
@@ -272,6 +297,11 @@
     .header-partners { align-items: flex-start; }
     .event-brand-sub { display: none; }
   }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
   .header-cta {
     display: inline-flex;
     align-items: center;
@@ -287,7 +317,17 @@
     transition: background 0.2s ease, color 0.2s ease;
   }
   .header-cta:hover { background: var(--color-green-deep); color: var(--color-bg); }
+  @media (max-width: 720px) {
+    .header-right { gap: 0.9rem; }
+    .header-partners { display: none; }
+  }
   .inline-cta { text-align: center; margin: 2.6rem 0 0; }
+  .inline-cta-note {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+  }
 
   /* -------------------------------------------------------------
      Hero
@@ -1343,15 +1383,17 @@
         <span class="event-brand-sub">Orientierungsberatung · Bewertung</span>
       </span>
     </a>
-    <div class="header-partners" aria-label="Kontakt">
-      <span class="header-partners-label">Kontakt</span>
-      <div class="header-partners-list">
-        <a href="tel:+493882788868">038827 / 88868</a>
-        <span class="header-partners-divider" aria-hidden="true">·</span>
-        <a href="mailto:info@ibras.de">info@ibras.de</a>
+    <div class="header-right">
+      <div class="header-partners" aria-label="Kontakt">
+        <span class="header-partners-label">Kontakt</span>
+        <div class="header-partners-list">
+          <a href="tel:+493882788868">038827 / 88868</a>
+          <span class="header-partners-divider" aria-hidden="true">·</span>
+          <a href="mailto:info@ibras.de">info@ibras.de</a>
+        </div>
       </div>
+      <a href="#kontakt" class="header-cta">Unverbindlich anfragen</a>
     </div>
-    <a href="#kontakt" class="header-cta">Anfrage stellen</a>
   </div>
 </header>
 <div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -1407,7 +1449,7 @@
 <!-- =================================================================
      WORUM ES GEHT
      ================================================================= -->
-<section class="section-bg-soft">
+<section class="section-bg-soft worum-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Worum es geht</span>
@@ -1452,7 +1494,7 @@
 <!-- =================================================================
      FÜR WEN — ZWEI TYPISCHE SITUATIONEN
      ================================================================= -->
-<section>
+<section class="fuerwen-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Für wen</span>
@@ -1494,7 +1536,7 @@
       </div>
     </details>
 
-    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Jetzt Anfrage stellen</a></p>
+    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Unverbindlich anfragen</a><span class="inline-cta-note">Kostenfrei und unverbindlich</span></p>
   </div>
 </section>
 
@@ -1560,7 +1602,7 @@
       </div>
     </div>
 
-    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Jetzt Anfrage stellen</a></p>
+    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Unverbindlich anfragen</a><span class="inline-cta-note">Kostenfrei und unverbindlich</span></p>
   </div>
 </section>
 
@@ -1568,7 +1610,7 @@
 <!-- =================================================================
      WER BERÄT
      ================================================================= -->
-<section class="section-bg-soft">
+<section class="section-bg-soft werberaet-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Wer berät</span>
@@ -1600,7 +1642,7 @@
       </article>
     </div>
 
-    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Jetzt Anfrage stellen</a></p>
+    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Unverbindlich anfragen</a><span class="inline-cta-note">Kostenfrei und unverbindlich</span></p>
   </div>
 </section>
 
@@ -1637,7 +1679,7 @@
 <!-- =================================================================
      ABLAUF
      ================================================================= -->
-<section>
+<section class="ablauf-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Ablauf</span>
@@ -1715,7 +1757,7 @@
 <!-- =================================================================
      KONTAKT & NÄCHSTER SCHRITT
      ================================================================= -->
-<section id="kontakt" class="booking-section">
+<section id="kontakt" class="booking-section naechster-schritt-band">
   <div class="container">
     <div class="booking-head">
       <span class="eyebrow">Kontakt &amp; nächster Schritt</span>
