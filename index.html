@@ -272,6 +272,22 @@
     .header-partners { align-items: flex-start; }
     .event-brand-sub { display: none; }
   }
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .header-cta:hover { background: var(--color-green-deep); color: var(--color-bg); }
+  .inline-cta { text-align: center; margin: 2.6rem 0 0; }
 
   /* -------------------------------------------------------------
      Hero
@@ -1335,6 +1351,7 @@
         <a href="mailto:info@ibras.de">info@ibras.de</a>
       </div>
     </div>
+    <a href="#kontakt" class="header-cta">Anfrage stellen</a>
   </div>
 </header>
 <div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -1476,6 +1493,8 @@
         </ul>
       </div>
     </details>
+
+    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Jetzt Anfrage stellen</a></p>
   </div>
 </section>
 
@@ -1540,6 +1559,8 @@
         <p>Damit Sie nicht unter Wert verkaufen.</p>
       </div>
     </div>
+
+    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Jetzt Anfrage stellen</a></p>
   </div>
 </section>
 
@@ -1578,6 +1599,8 @@
         </div>
       </article>
     </div>
+
+    <p class="inline-cta"><a href="#kontakt" class="hero-cta">Jetzt Anfrage stellen</a></p>
   </div>
 </section>
 
