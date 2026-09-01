@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung · Orientierungsberatung Bewertung · ibras®</title>
+<meta name="description" content="Datenschutzerklärung der ibras® GmbH & Co. KG.">
+<meta name="robots" content="noindex, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --color-bg:             #FAF7F0;
+    --color-bg-soft:        #F3EFE3;
+    --color-section-medium: #E8E4D8;
+    --color-ink:            #2C2C2C;
+    --color-ink-soft:       #555555;
+    --color-ink-muted:      #8A8A85;
+    --color-rule:           #D9D4C5;
+    --color-rule-soft:      #EDE9DD;
+    --color-green:          #7DB72F;
+    --color-green-deep:     #5E8C20;
+    --color-green-tint:     #E8F0D5;
+    --color-paper:          #FFFFFF;
+
+    --font-display: "Newsreader", "Georgia", "Times New Roman", serif;
+    --font-body:    "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --max-w: 1180px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--color-green); color: var(--color-ink); }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+  p { margin: 0 0 1em; }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-green-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .eyebrow::before { content: "//"; font-weight: 700; color: var(--color-green); }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  section { padding-block: clamp(4.5rem, 9vw, 8rem); position: relative; }
+  .section-bg-paper { background: var(--color-paper); }
+
+  .hero-compact { padding-bottom: 1.75rem; }
+  .section-tight-top { padding-top: 1.75rem; }
+
+  .accent-bars { display: inline-flex; gap: 4px; align-items: center; }
+  .accent-bars span { display: block; width: 36px; height: 9px; }
+  .accent-bars span:nth-child(1) { background: var(--color-ink); }
+  .accent-bars span:nth-child(2) { background: var(--color-green); }
+  .accent-bars span:nth-child(3) { background: var(--color-green-tint); }
+
+  .brand-divider { display: flex; width: 100%; height: 5px; }
+  .brand-divider span { flex: 1; display: block; }
+  .brand-divider span:nth-child(1) { background: var(--color-ink); }
+  .brand-divider span:nth-child(2) { background: var(--color-green); }
+  .brand-divider span:nth-child(3) { background: var(--color-green-tint); }
+
+  .site-header {
+    border-bottom: 1px solid var(--color-rule);
+    padding-block: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .event-brand { display: flex; align-items: center; gap: 0.85rem; color: inherit; }
+  .event-brand-title {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  .event-brand-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .header-right { display: flex; align-items: center; gap: 1.6rem; }
+  .header-partners { display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; }
+  .header-partners-label {
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .header-partners-list {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+  .header-partners-list a:hover { color: var(--color-green-deep); }
+  .header-partners-divider { color: var(--color-green); font-weight: 400; }
+  @media (max-width: 640px) {
+    .header-partners { align-items: flex-start; }
+    .event-brand-sub { display: none; }
+  }
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .header-cta:hover { background: var(--color-green-deep); color: var(--color-bg); }
+  @media (max-width: 720px) {
+    .header-right { gap: 0.9rem; }
+    .header-partners { display: none; }
+  }
+
+  .hero { padding-top: clamp(4rem, 7vw, 6rem); padding-bottom: clamp(4rem, 7vw, 6rem); position: relative; }
+  .hero h1 { margin-top: 1.5rem; margin-bottom: 1.8rem; }
+
+  .legal-content {
+    max-width: 760px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+  }
+  .legal-content h2 {
+    font-size: 1.3rem;
+    margin-top: 2.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-ink);
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-ink);
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal-content p { margin: 0 0 1.1em; }
+  .legal-content ul { margin: 0 0 1.1em; padding-left: 1.3rem; }
+  .legal-content li { margin-bottom: 0.4em; }
+  .legal-content strong { color: var(--color-ink); }
+  .legal-content a { color: var(--color-green-deep); border-bottom: 1px solid var(--color-green); }
+  .legal-meta { font-size: 0.85rem; color: var(--color-ink-muted); margin-bottom: 2rem; }
+
+  .site-footer { background: var(--color-section-medium); color: var(--color-ink); padding-block: 4rem; }
+  .footer-intro {
+    max-width: 680px;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .footer-intro .accent-bars { margin-bottom: 1.2rem; }
+  .footer-intro h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .footer-intro p { color: var(--color-ink-soft); font-size: 0.95rem; line-height: 1.65; margin: 0; }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (min-width: 720px) {
+    .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; }
+  }
+  .footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-green-deep);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .footer-col p { font-size: 0.92rem; line-height: 1.7; color: var(--color-ink-soft); margin: 0; }
+  .footer-col strong { color: var(--color-ink); font-weight: 700; }
+  .footer-col a {
+    color: var(--color-ink-soft);
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .footer-col a:hover { color: var(--color-green-deep); border-bottom-color: var(--color-green); }
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--color-rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+  }
+  .footer-bottom a { color: var(--color-ink-muted); transition: color 0.15s ease; }
+  .footer-bottom a:hover { color: var(--color-green-deep); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="event-brand" aria-label="Orientierungsberatung Bewertung – Startseite">
+      <span class="accent-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>
+        <span class="event-brand-title">ibras<sup>®</sup></span>
+        <span class="event-brand-sub">Orientierungsberatung · Bewertung</span>
+      </span>
+    </a>
+    <div class="header-right">
+      <div class="header-partners" aria-label="Kontakt">
+        <span class="header-partners-label">Kontakt</span>
+        <div class="header-partners-list">
+          <a href="tel:+493882788868">038827 / 88868</a>
+          <span class="header-partners-divider" aria-hidden="true">·</span>
+          <a href="mailto:info@ibras.de">info@ibras.de</a>
+        </div>
+      </div>
+      <a href="index.html#kontakt" class="header-cta">Anfrage stellen</a>
+    </div>
+  </div>
+</header>
+<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<section class="hero hero-compact">
+  <div class="container">
+    <span class="eyebrow">Rechtliches</span>
+    <h1 style="margin-top: 1.5rem; max-width: 22ch;">Datenschutzerklärung.</h1>
+  </div>
+</section>
+
+<section class="section-bg-paper section-tight-top">
+  <div class="container">
+    <div class="legal-content">
+      <p class="legal-meta">Neuenhagen, den 14.09.2023</p>
+
+      <p>
+        An alle unsere Geschäftspartnerinnen bzw. Geschäftspartner und Personen bzw. Unternehmen, die mit uns Kontakt haben oder haben werden!
+      </p>
+      <p>
+        Sehr geehrte Damen und Herren, die Themen Datenschutz und Kommunikation rücken immer stärker in den Fokus von Verbrauchern und Unternehmen. Nicht zuletzt haben die in den Medien bekannt gewordenen spektakulären Skandale zur Sensibilität dieser wichtigen Thematik beigetragen. Auch das Inkrafttreten der Datenschutzgrundverordnung (kurz „DSGVO") mit Wirkung zum 25.05.2018, welche weitgehend das bisherige Bundesdatenschutzgesetz ersetzt, veranlasst uns, Sie über die Handhabung des Datenschutzes und der Kommunikation in unserem Hause zu informieren.
+      </p>
+      <p>Die Informationen über den Datenschutz einerseits und die Kommunikation andererseits möchten wir mit drei wesentlichen Anliegen verbinden:</p>
+      <ul>
+        <li>Ihre Einwilligung zur Erhebung, Speicherung, Verarbeitung, Archivierung und in bestimmten Fällen auch die Weiterleitung Ihrer Daten (insbesondere Kaufinteressentendaten zur Anbahnung von Transaktionen).</li>
+        <li>Ihre Einwilligung zu unserer Handhabung der Kommunikation zwischen Ihnen und uns.</li>
+        <li>Bei Einwilligung die Aktualisierung Ihrer Kontaktdaten, oder die Löschung Ihrer bisher erfassten Daten vorzunehmen, wenn Sie keine Einwilligung erteilen.</li>
+      </ul>
+
+      <h2>A) Zum Datenschutz</h2>
+
+      <h3>Verantwortliche für die Datenverarbeitung</h3>
+      <p>
+        Verantwortlich im Sinne datenschutzrechtlicher Bestimmungen, zur Kommunikation und zur Aktualisierung von Daten (Datenverarbeitung) ist ibras® GmbH &amp; Co. KG, vertreten vom Geschäftsführer Christian Lüth, Am Park 2, 23942 Neuenhagen, Tel. 038827-88868, Mail info@ibras.de.
+      </p>
+
+      <h3>Datenschutzbeauftragte</h3>
+      <p>
+        Unsere betriebliche Datenschutzbeauftragte ist Ulrike Lüth, erreichbar unter ibras® GmbH &amp; Co. KG, Am Park 2, 23942 Neuenhagen, Tel. 038827-88868, Mail info@ibras.de. Jeder Interessent/Mandant kann sich als „betroffene Person" jederzeit bei allen Fragen und Anregungen zum Datenschutz direkt an unsere Datenschutzbeauftragte wenden.
+      </p>
+
+      <h3>Zwecke und Rechtsgrundlagen der Datenverarbeitung</h3>
+      <p>
+        Wir verarbeiten Ihre personenbezogenen Daten unter Beachtung der EU-Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) sowie aller weiteren maßgeblichen Gesetze. Die Erhebung und Speicherung personenbezogener Daten erfolgt, wenn Sie Interesse am Kontakt zu uns und/oder an unseren Dienstleistungen haben. Die Datenverarbeitung erfolgt auf Ihre Anfrage hin und ist nach Art. 6 Abs. 1 S. 1 lit. b DSGVO zu den genannten Zwecken für die angemessene Bearbeitung des Mandats und für die beiderseitige Erfüllung von Verpflichtungen aus dem Mandatsvertrag erforderlich.
+      </p>
+      <p>Die Erhebung und Speicherung der Daten erfolgt,</p>
+      <ul>
+        <li>um mit Ihnen korrespondieren zu können,</li>
+        <li>um mit Ihnen telefonischen Kontakt aufzunehmen,</li>
+        <li>um Sie als Interessent oder Mandant zu identifizieren,</li>
+        <li>um Ihnen eine Rechnung zuzustellen,</li>
+        <li>um Statistiken als Grundlage für Studien zu erstellen,</li>
+        <li>um schließlich die in Auftrag gegebenen Dienstleistungen zu vollbringen.</li>
+      </ul>
+      <p>ibras verzichtet auf eine automatische Entscheidungsfindung oder ein „Profiling".</p>
+      <p>
+        Ihre Daten verarbeiten wir auch, um berechtigte Interessen von uns oder von Dritten zu wahren (Art. 6 Abs. 1 f DSGVO), insbesondere zur Gewährleistung der IT-Sicherheit und des IT-Betriebs, zur Werbung für unsere eigenen Dienstleistungen sowie für Markt- und Meinungsumfragen i. S. von Art. 9 Abs. 2 j) DSGVO i. V. m. § 27 BDSG. Sollten wir Ihre personenbezogenen Daten für einen oben nicht genannten Zweck verarbeiten wollen, werden wir Sie im Rahmen der gesetzlichen Bestimmungen darüber zuvor informieren.
+      </p>
+
+      <h3>Dauer der Datenspeicherung</h3>
+      <p>
+        Wir löschen Ihre personenbezogenen Daten, sobald diese für die oben genannten Zwecke nicht mehr erforderlich sind, oder wenn sich dies nicht nachteilig für Sie im Sinne von Art. 18 Abs. 1c) DSGVO auswirken kann. Dabei kann es vorkommen, dass personenbezogene Daten für die Zeit aufbewahrt werden, in welcher Ansprüche gegen unser Unternehmen geltend gemacht werden können (gesetzliche Verjährungsfrist von 3 oder bis zu 30 Jahren). Zudem speichern wir Ihre personenbezogenen Daten, soweit wir dazu gesetzlich verpflichtet sind. Entsprechende Nachweis- und Aufbewahrungspflichten ergeben sich unter anderem aus dem Handelsgesetzbuch und der Abgabenordnung; die Speicherfristen betragen danach bis zu 10 Jahren.
+      </p>
+      <p>
+        Mit Ihrer Einwilligung erklären Sie sich damit einverstanden, dass die erhobenen personenbezogenen Daten aufgrund steuer- und handelsrechtlicher Aufbewahrungs- und Dokumentationspflichten (aus HGB, StGB oder AO) gespeichert bzw. archiviert werden dürfen (Art. 6 Abs. 1 c) DSGVO).
+      </p>
+
+      <h3>Kategorien von Empfängern</h3>
+      <p>
+        Eine Übermittlung Ihrer persönlichen Daten an Dritte und zu anderen, als den zuvor aufgeführten Zwecken, findet nicht statt. Eine Zusammenarbeit mit Subunternehmern erfolgt nicht.
+      </p>
+      <p>
+        Empfänger innerhalb der ibras GmbH &amp; Co. KG: die Geschäftsführung sowie die Erfüllungsgehilfen/Mitarbeiterinnen der ibras GmbH &amp; Co. KG, soweit erforderlich.
+      </p>
+      <p>Empfänger außerhalb der ibras GmbH durch externe Dienstleister:</p>
+      <ul>
+        <li>IT-Berater: Jörg Bohnhoff, Bohnhoff IT GmbH, Gustav-Delle-Straße 27, 22926 Ahrensburg</li>
+        <li>Steuerberater: Popien + Partner Steuerberatungsgesellschaft mbB, Steuerberater Dipl.-Finanzwirt (FH) Finn-Christopher Popien, Schiffbauerdamm 5, 23966 Wismar</li>
+      </ul>
+      <p>Weitere Empfänger können Behörden zur Erfüllung gesetzlicher Mitteilungspflichten sein, z. B. Sozialversicherungsträger, Finanzbehörden, Strafverfolgungsbehörden.</p>
+
+      <h3>Besonderheiten bei Unternehmens- bzw. Bestandstransaktionen</h3>
+      <p>
+        <strong>Für Kaufinteressenten:</strong> Die personenbezogenen Daten und eventuell auftragsrelevante Informationen von Kaufinteressenten werden auch dann erhoben, gespeichert und verarbeitet, wenn kein Mandatsverhältnis vorliegt. Die Kaufinteressenten willigen ein, dass ihre Daten an mögliche Verkäufer von uns weitergeleitet werden dürfen, ohne dass diese Kenntnis von den Verkäufern erlangen. Diese Vorgehensweise ist insofern zwingend erforderlich, da Verkäufer ein elementares Interesse daran haben, dass ihre Identität gegenüber möglichen Kaufinteressenten erst dann preisgegeben wird, wenn die Kaufinteressenten als mögliche Erwerber potentiell aus Sicht der Verkäufer in Frage kommen.
+      </p>
+      <p>
+        <strong>Für Verkäufer:</strong> Die personenbezogenen Daten und eventuell auftragsrelevante Informationen von Verkäufern werden auch dann erhoben, gespeichert und verarbeitet, wenn kein Mandatsverhältnis vorliegt. Die Verkäufer willigen ein, dass ihre Daten an mögliche Kaufinteressenten von uns weitergeleitet werden dürfen, wenn diese eine Geheimhaltungsvereinbarung unterzeichnet haben.
+      </p>
+      <p>
+        Soweit dies nach Art. 6 Abs. 1 S. 1 lit. f DSGVO für die Abwicklung von Transaktionen mit Ihnen erforderlich ist, werden Ihre personenbezogenen Daten und eventuell auftragsrelevante Informationen an Dritte weitergegeben, insbesondere an Transaktionsbeteiligte (Kaufinteressenten und Verkäufer) und deren Vertreter (insbesondere deren Steuerberater und Rechtsanwälte) zum Zwecke der Vorbereitung und Umsetzung einer möglichen Transaktion. Die weitergegebenen Daten/Informationen dürfen von Dritten ausschließlich zu den genannten Zwecken verwendet werden. Die standesrechtlichen Gebote zur Geheimhaltung bei Rechtsanwälten und Steuerberatern bleiben unberührt. Eine Datenübermittlung in Drittländer erfolgt nicht.
+      </p>
+
+      <h3>Bonitätsauskünfte</h3>
+      <p>Soweit es zur Wahrung berechtigter Interessen notwendig ist, stellen wir bei Bedarf Anfragen bei den allgemein üblichen Institutionen (zum Beispiel Creditreform) zu Ihrer Bonität, Solvenz bzw. Ihres Zahlungsverhaltens.</p>
+
+      <h3>Datensicherheit</h3>
+      <p>
+        Im Rahmen unserer Rechenschafts- und Nachweispflicht haben wir ein Verzeichnis von Verarbeitungstätigkeiten gemäß Art. 30 Abs. 1, 3 DSGVO erstellt. Darüber hinaus haben wir gemeinsam mit unseren IT-Beratern viel Zeit dafür aufgewendet, um Ihre Daten sicher vorzuhalten. Das Konzept beinhaltet unter anderem:
+      </p>
+      <ul>
+        <li>Übersicht sämtlicher Geräte, mit denen eine Datenverarbeitung erfolgt</li>
+        <li>Sperrung bei kurzer Inaktivität (zum Beispiel Notebooks)</li>
+        <li>Passwortsystem, marktübliches Antivirenprogramm</li>
+        <li>Benutzerkontensteuerung und Windows-Firewall</li>
+        <li>tägliche Datensicherung mit wöchentlicher Archivierung auf externen Festplatten (Generationenprinzip)</li>
+        <li>laufende Datenvorhaltung ausschließlich auf einem heimischen Server in Zusammenarbeit mit 1:1</li>
+        <li>sparsamer Umgang mit WhatsApp-Kommunikation</li>
+        <li>regelmäßige Rückladungstests mit Protokollwesen</li>
+        <li>regelmäßige Archivierung von E-Mails, die dann nicht mehr in der laufenden Datenvorhaltung sichtbar sind</li>
+        <li>fachgerechte Entsorgung alter Rechner/Festplatten</li>
+      </ul>
+
+      <h3>Betroffenenrechte</h3>
+      <p>Sie haben jederzeit das Recht,</p>
+      <ul>
+        <li>gemäß Art. 7 Abs. 3 DSGVO Ihre einmal erteilte Einwilligung jederzeit uns gegenüber zu widerrufen,</li>
+        <li>gemäß Art. 15 DSGVO Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen,</li>
+        <li>gemäß Art. 16 DSGVO unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen,</li>
+        <li>gemäß Art. 17 DSGVO die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen,</li>
+        <li>gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen,</li>
+        <li>gemäß Art. 20 DSGVO Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder deren Übermittlung an einen anderen Verantwortlichen zu verlangen,</li>
+        <li>gemäß Art. 77 DSGVO sich bei einer Aufsichtsbehörde zu beschweren.</li>
+      </ul>
+
+      <h3>Beschwerderecht</h3>
+      <p>
+        Sie haben die Möglichkeit, sich mit einer Beschwerde an den oben genannten Datenschutzbeauftragten oder an eine Datenschutzaufsichtsbehörde zu wenden. Die für uns zuständige Datenschutzaufsichtsbehörde ist:
+      </p>
+      <p>
+        Der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern<br>
+        Werderstraße 74 a, 19055 Schwerin<br>
+        Telefon: +49 385 59494 0 · Telefax: +49 385 59494 58<br>
+        E-Mail: info@datenschutz-mv.de · Webseite: www.datenschutz-mv.de
+      </p>
+
+      <h3>Widerspruchsrecht</h3>
+      <p>
+        Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 S. 1 lit. f DSGVO verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten einzulegen, soweit dafür Gründe vorliegen, die sich aus Ihrer besonderen Situation ergeben. Möchten Sie von Ihrem Widerspruchsrecht Gebrauch machen, genügt eine E-Mail an unsere Datenschutzbeauftragte.
+      </p>
+
+      <h2>B) Zur Kommunikation</h2>
+      <p>
+        Aus praktikablen Gründen ist es mittlerweile überwiegende Praxis, sich der E-Mail-Kommunikation zu bedienen. In diesem Zusammenhang sei darauf hingewiesen, dass bei einer (unverschlüsselten) Übermittlung von Daten per E-Mail nicht ausgeschlossen werden kann, dass sich Dritte unbefugten Zugriff auf die E-Mail-Kommunikation verschaffen können. Im Wissen dieser Unsicherheit und Gefahren willigen Sie trotzdem ausdrücklich ein, dass die E-Mail-Korrespondenz auch unverschlüsselt erfolgen darf. Sollte eine gesondert verschlüsselte E-Mail-Kommunikation auf Ihren Wunsch erfolgen, ist dies grundsätzlich mit ibras abzustimmen; dadurch verursachte Mehrkosten sind von Ihrer Seite zu übernehmen.
+      </p>
+      <p>Bezüglich der Kontaktaufnahme von ibras gegenüber Ihrer Person bzw. Ihrem Unternehmen willigen Sie ein, dass wir</p>
+      <ul>
+        <li>Sie über die uns bekannten Telefonnummern anrufen dürfen,</li>
+        <li>Ihnen eine kurze SMS bzw. WhatsApp-Nachricht als Hinweis übermitteln dürfen,</li>
+        <li>Ihnen ein Telefax an die uns bekannte Nummer senden dürfen,</li>
+        <li>Ihnen eine E-Mail an Ihre berufliche oder, nach gesonderter Vereinbarung, private E-Mail-Adresse senden dürfen,</li>
+        <li>Ihnen eine postalische Zusendung zukommen lassen dürfen.</li>
+      </ul>
+      <p>Nachrichten in Form von WhatsApp- und SMS-Kommunikation entfalten keine rechtliche Wirksamkeit.</p>
+
+      <h2>C) Zur Aktualisierung Ihrer Daten</h2>
+      <p>
+        Für die Aktualisierung Ihrer Daten wenden Sie sich bitte direkt an <a href="mailto:info@ibras.de">info@ibras.de</a>.
+      </p>
+      <p>
+        Um ein Höchstmaß an Datenschutz zu gewährleisten, bitten wir Sie, uns generell keine Versicherungsnehmer-Daten (Selektionen unter Angabe des VN-Namens, Versicherungsnummer oder Bestandslisten von Versicherern mit Angaben des VN-Namens, Versicherungsnummer usw.) zukommen zu lassen.
+      </p>
+      <p>Mit freundlichen Grüßen<br>Christian Lüth<br>Geschäftsführer ibras® GmbH &amp; Co. KG</p>
+
+      <h2>Webseitenanalyse</h2>
+      <p>
+        Wenn Sie unsere Website besuchen, sammeln wir Informationen über Ihre Nutzung durch ein Webanalyse-Tool, das von unserem Hosting-Service bereitgestellt wird. Dieses Tool sammelt und kombiniert Ihre IP-Adresse und Ihren User Agent, verkürzt sie und speichert diese Daten mit einer Hash-Funktion. Durch diesen Vorgang wird eine Besucherkennung erstellt, die mit einem zufällig generierten Wert (SALT) verschlüsselt ist, der sich alle 24 Stunden ändert. Diese Methode stellt sicher, dass Ihre IP-Adresse nicht aus dem gespeicherten Besucheridentifikator rekonstruiert werden kann, sodass Ihre Anonymität gewahrt bleibt. Wir führen diese Informationen nicht mit anderen Daten zusammen; sie werden nur auf dem Server des Hosting-Anbieters gespeichert.
+      </p>
+      <p>
+        Das verwendete Webanalysetool erstellt und speichert ein Webanalyseprofil, das Details über die Nutzung der Website enthält, z. B. Seitenaufrufe, Besuchshäufigkeit, Verweildauer auf jeder Seite und den User Agent des Geräts. Rechtsgrundlage für diese Verarbeitung ist unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) an der Durchführung von Webmessungen, um unsere Produkte und unsere Website zu verbessern. Die erhobenen Daten werden mit unserem Website-Hosting-Anbieter geteilt und innerhalb der EU verarbeitet.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-intro">
+      <span class="accent-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <h3>ibras® GmbH &amp; Co. KG</h3>
+      <p>Spezialisiert auf Maklernachfolge und Bestandsbewertung — seit 2004 ausschließlich für Versicherungsmakler.</p>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>
+          <strong>ibras<sup>®</sup> GmbH &amp; Co. KG</strong><br>
+          Am Park 2, 23942 Neuenhagen bei Lübeck<br>
+          Tel. <a href="tel:+493882788868">038827 / 88868</a><br>
+          <a href="mailto:info@ibras.de">info@ibras.de</a><br>
+          <a href="https://www.ibras.de" target="_blank" rel="noopener">ibras.de</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Orientierungsberatung – Formate</h4>
+        <p>
+          <strong>Persönlich</strong><br>
+          Mein Lebenswerk – Raum für Klarheit
+        </p>
+        <p style="margin-top: 0.9rem;">
+          <strong>Videokonferenz</strong><br>
+          Nachfolge<br>
+          Beratung<br>
+          Bewertung
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <p>
+          <a href="impressum.html">Impressum</a><br>
+          <a href="datenschutz.html">Datenschutz</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 · ibras® GmbH &amp; Co. KG</span>
+      <span>
+        <a href="impressum.html" style="margin-right: 1.2rem;">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

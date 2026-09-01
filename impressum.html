@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum · Orientierungsberatung Bewertung · ibras®</title>
+<meta name="description" content="Impressum der ibras® GmbH & Co. KG.">
+<meta name="robots" content="noindex, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --color-bg:             #FAF7F0;
+    --color-bg-soft:        #F3EFE3;
+    --color-section-medium: #E8E4D8;
+    --color-ink:            #2C2C2C;
+    --color-ink-soft:       #555555;
+    --color-ink-muted:      #8A8A85;
+    --color-rule:           #D9D4C5;
+    --color-rule-soft:      #EDE9DD;
+    --color-green:          #7DB72F;
+    --color-green-deep:     #5E8C20;
+    --color-green-tint:     #E8F0D5;
+    --color-paper:          #FFFFFF;
+
+    --font-display: "Newsreader", "Georgia", "Times New Roman", serif;
+    --font-body:    "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --max-w: 1180px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--color-green); color: var(--color-ink); }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+  p { margin: 0 0 1em; }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-green-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .eyebrow::before { content: "//"; font-weight: 700; color: var(--color-green); }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  section { padding-block: clamp(4.5rem, 9vw, 8rem); position: relative; }
+  .section-bg-paper { background: var(--color-paper); }
+
+  .hero-compact { padding-bottom: 1.75rem; }
+  .section-tight-top { padding-top: 1.75rem; }
+
+  .accent-bars { display: inline-flex; gap: 4px; align-items: center; }
+  .accent-bars span { display: block; width: 36px; height: 9px; }
+  .accent-bars span:nth-child(1) { background: var(--color-ink); }
+  .accent-bars span:nth-child(2) { background: var(--color-green); }
+  .accent-bars span:nth-child(3) { background: var(--color-green-tint); }
+
+  .brand-divider { display: flex; width: 100%; height: 5px; }
+  .brand-divider span { flex: 1; display: block; }
+  .brand-divider span:nth-child(1) { background: var(--color-ink); }
+  .brand-divider span:nth-child(2) { background: var(--color-green); }
+  .brand-divider span:nth-child(3) { background: var(--color-green-tint); }
+
+  .site-header {
+    border-bottom: 1px solid var(--color-rule);
+    padding-block: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .event-brand { display: flex; align-items: center; gap: 0.85rem; color: inherit; }
+  .event-brand-title {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  .event-brand-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .header-right { display: flex; align-items: center; gap: 1.6rem; }
+  .header-partners { display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; }
+  .header-partners-label {
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .header-partners-list {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+  .header-partners-list a:hover { color: var(--color-green-deep); }
+  .header-partners-divider { color: var(--color-green); font-weight: 400; }
+  @media (max-width: 640px) {
+    .header-partners { align-items: flex-start; }
+    .event-brand-sub { display: none; }
+  }
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .header-cta:hover { background: var(--color-green-deep); color: var(--color-bg); }
+  @media (max-width: 720px) {
+    .header-right { gap: 0.9rem; }
+    .header-partners { display: none; }
+  }
+
+  .hero { padding-top: clamp(4rem, 7vw, 6rem); padding-bottom: clamp(4rem, 7vw, 6rem); position: relative; }
+  .hero h1 { margin-top: 1.5rem; margin-bottom: 1.8rem; }
+
+  .legal-content {
+    max-width: 760px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+  }
+  .legal-content h2 {
+    font-size: 1.3rem;
+    margin-top: 2.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-ink);
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-ink);
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal-content p { margin: 0 0 1.1em; }
+  .legal-content ul { margin: 0 0 1.1em; padding-left: 1.3rem; }
+  .legal-content li { margin-bottom: 0.4em; }
+  .legal-content strong { color: var(--color-ink); }
+  .legal-content a { color: var(--color-green-deep); border-bottom: 1px solid var(--color-green); }
+  .legal-meta { font-size: 0.85rem; color: var(--color-ink-muted); margin-bottom: 2rem; }
+
+  .site-footer { background: var(--color-section-medium); color: var(--color-ink); padding-block: 4rem; }
+  .footer-intro {
+    max-width: 680px;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .footer-intro .accent-bars { margin-bottom: 1.2rem; }
+  .footer-intro h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .footer-intro p { color: var(--color-ink-soft); font-size: 0.95rem; line-height: 1.65; margin: 0; }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (min-width: 720px) {
+    .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; }
+  }
+  .footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-green-deep);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .footer-col p { font-size: 0.92rem; line-height: 1.7; color: var(--color-ink-soft); margin: 0; }
+  .footer-col strong { color: var(--color-ink); font-weight: 700; }
+  .footer-col a {
+    color: var(--color-ink-soft);
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .footer-col a:hover { color: var(--color-green-deep); border-bottom-color: var(--color-green); }
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--color-rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+  }
+  .footer-bottom a { color: var(--color-ink-muted); transition: color 0.15s ease; }
+  .footer-bottom a:hover { color: var(--color-green-deep); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="event-brand" aria-label="Orientierungsberatung Bewertung – Startseite">
+      <span class="accent-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>
+        <span class="event-brand-title">ibras<sup>®</sup></span>
+        <span class="event-brand-sub">Orientierungsberatung · Bewertung</span>
+      </span>
+    </a>
+    <div class="header-right">
+      <div class="header-partners" aria-label="Kontakt">
+        <span class="header-partners-label">Kontakt</span>
+        <div class="header-partners-list">
+          <a href="tel:+493882788868">038827 / 88868</a>
+          <span class="header-partners-divider" aria-hidden="true">·</span>
+          <a href="mailto:info@ibras.de">info@ibras.de</a>
+        </div>
+      </div>
+      <a href="index.html#kontakt" class="header-cta">Anfrage stellen</a>
+    </div>
+  </div>
+</header>
+<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<section class="hero hero-compact">
+  <div class="container">
+    <span class="eyebrow">Rechtliches</span>
+    <h1 style="margin-top: 1.5rem; max-width: 20ch;">Impressum.</h1>
+  </div>
+</section>
+
+<section class="section-bg-paper section-tight-top">
+  <div class="container">
+    <div class="legal-content">
+      <p>Verantwortlich gemäß § 6 TDG:<br><strong>ibras® GmbH &amp; Co. KG</strong></p>
+
+      <h2>Postanschrift</h2>
+      <p>
+        ibras® GmbH &amp; Co. KG<br>
+        Am Park 2<br>
+        23942 Neuenhagen<br>
+        Tel.: (+49) 38827 – 88868<br>
+        E-Mail: <a href="mailto:info@ibras.de">info@ibras.de</a><br>
+        Web: <a href="https://www.ibras.de">www.ibras.de</a>
+      </p>
+
+      <h2>Gesellschaft</h2>
+      <p>
+        Persönlich haftender Gesellschafter (Komplementär): ibras Verwaltungsgesellschaft mbH<br>
+        Finanzamt Wismar, Steuernr.: 080 111 03449 (ehemalig ibras GmbH)<br>
+        Amtsgericht Schwerin: HRB 9777
+      </p>
+      <p>
+        Geschäftsführer: Christian Lüth, Amtsgericht Schwerin HRB 14702<br>
+        Vertretungsberechtigter: Christian Lüth<br>
+        Inhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV: Christian Lüth
+      </p>
+
+      <h2>Haftungsausschluss</h2>
+
+      <h3>1. Inhalt des Onlineangebotes</h3>
+      <p>
+        Die ibras® GmbH &amp; Co. KG übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. Haftungsansprüche gegen ibras® GmbH &amp; Co. KG, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens der ibras® GmbH &amp; Co. KG kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
+      </p>
+      <p>
+        Alle Angebote sind freibleibend und unverbindlich. Die ibras® GmbH &amp; Co. KG behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
+      </p>
+
+      <h3>2. Verweise und Links</h3>
+      <p>
+        Bei direkten oder indirekten Verweisen auf fremde Webseiten („Hyperlinks"), die außerhalb des Verantwortungsbereiches der ibras® GmbH &amp; Co. KG liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem die ibras® GmbH &amp; Co. KG von den Inhalten Kenntnis hat und es ihr technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern. Die ibras® GmbH &amp; Co. KG erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat die ibras® GmbH &amp; Co. KG keinerlei Einfluss. Deshalb distanziert sie sich hiermit ausdrücklich von allen Inhalten aller verlinkten/verknüpften Seiten, die nach der Linksetzung verändert wurden.
+      </p>
+
+      <h3>3. Urheber- und Kennzeichenrecht</h3>
+      <p>
+        ibras® GmbH &amp; Co. KG ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, von ihr selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen. Das Copyright für veröffentlichte, von ibras® GmbH &amp; Co. KG selbst erstellte Objekte bleibt allein bei der ibras® GmbH &amp; Co. KG. Eine Vervielfältigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung der ibras® GmbH &amp; Co. KG nicht gestattet.
+      </p>
+
+      <h3>4. Datenschutz</h3>
+      <p>
+        Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis. Die Nutzung der im Rahmen des Impressums oder vergleichbarer Angaben veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderten Informationen ist nicht gestattet.
+      </p>
+
+      <h3>5. Rechtswirksamkeit dieses Haftungsausschlusses</h3>
+      <p>
+        Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-intro">
+      <span class="accent-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <h3>ibras® GmbH &amp; Co. KG</h3>
+      <p>Spezialisiert auf Maklernachfolge und Bestandsbewertung — seit 2004 ausschließlich für Versicherungsmakler.</p>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>
+          <strong>ibras<sup>®</sup> GmbH &amp; Co. KG</strong><br>
+          Am Park 2, 23942 Neuenhagen bei Lübeck<br>
+          Tel. <a href="tel:+493882788868">038827 / 88868</a><br>
+          <a href="mailto:info@ibras.de">info@ibras.de</a><br>
+          <a href="https://www.ibras.de" target="_blank" rel="noopener">ibras.de</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Orientierungsberatung – Formate</h4>
+        <p>
+          <strong>Persönlich</strong><br>
+          Mein Lebenswerk – Raum für Klarheit
+        </p>
+        <p style="margin-top: 0.9rem;">
+          <strong>Videokonferenz</strong><br>
+          Nachfolge<br>
+          Beratung<br>
+          Bewertung
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <p>
+          <a href="impressum.html">Impressum</a><br>
+          <a href="datenschutz.html">Datenschutz</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 · ibras® GmbH &amp; Co. KG</span>
+      <span>
+        <a href="impressum.html" style="margin-right: 1.2rem;">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
