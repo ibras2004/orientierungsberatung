@@ -877,66 +877,36 @@
   }
   .booking-head h2 { margin-bottom: 1rem; }
 
+  .erster-schritt-compact { padding-block: clamp(2.5rem, 5vw, 3.5rem); }
+  .erster-schritt-compact .section-head { margin-bottom: 1.75rem; }
+
   .referral-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.25rem;
   }
   @media (min-width: 880px) {
-    .referral-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .referral-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   }
   .referral-card {
     background: var(--color-paper);
-    padding: 2.6rem 2.4rem;
+    padding: 1.6rem 1.8rem;
     border: 1px solid var(--color-rule);
     position: relative;
     display: flex;
     flex-direction: column;
   }
-  .referral-num {
-    font-size: 0.85rem;
-    color: var(--color-green-deep);
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    margin-bottom: 1.2rem;
-  }
   .referral-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
   }
   .referral-card > p {
     color: var(--color-ink-soft);
-    font-size: 0.96rem;
-    line-height: 1.65;
-    margin-bottom: 1.6rem;
-  }
-  .referral-meta {
-    list-style: none;
-    margin: 0 0 1.8rem;
-    padding: 1.2rem 0;
-    border-top: 1px solid var(--color-rule);
-    border-bottom: 1px solid var(--color-rule);
-  }
-  .referral-meta li {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 1rem;
-    padding-block: 0.4rem;
-    font-size: 0.9rem;
-    align-items: baseline;
-  }
-  .referral-meta li span {
-    color: var(--color-ink-muted);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-weight: 700;
-  }
-  .referral-meta li strong {
-    color: var(--color-ink);
-    font-weight: 400;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 1.1rem;
   }
   .referral-cta {
     margin-top: auto;
@@ -944,11 +914,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 1rem 1.9rem;
+    padding: 0.75rem 1.4rem;
     background: var(--color-ink);
     color: var(--color-bg);
     font-weight: 700;
-    font-size: 0.86rem;
+    font-size: 0.8rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
@@ -1615,7 +1585,7 @@
       </p>
       <a href="#kontakt" class="hero-cta reveal reveal-4">Beratungstermin anfragen</a>
       <p class="hero-secondary-note reveal reveal-4">
-        Lieber erst unverbindlich sprechen? <a href="#erster-schritt">Kostenfreies Erstgespräch</a> anfragen.
+        Lieber erst unverbindlich sprechen? <a href="#kontakt" data-anliegen="Kostenfreies Erstgespräch">Kostenfreies Erstgespräch</a> anfragen.
       </p>
     </div>
 
@@ -1958,38 +1928,23 @@
 <!-- =================================================================
      ERSTER SCHRITT — KOSTENFREIES ERSTGESPRÄCH ODER ORIENTIERUNGSBERATUNG
      ================================================================= -->
-<section id="erster-schritt" class="section-bg-soft">
+<section id="erster-schritt" class="section-bg-soft erster-schritt-compact">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Erster Schritt</span>
-      <h2>Noch unsicher? <em>Zwei Wege stehen offen.</em></h2>
-      <p class="lead" style="margin-top: 1rem;">
-        Manche Interessenten möchten zunächst unverbindlich sprechen, bevor sie die strukturierte Orientierungsberatung buchen — beides ist über das Formular unten möglich.
-      </p>
+      <h2 style="font-size: clamp(1.5rem, 2.6vw, 2rem);">Noch unsicher? <em>Zwei Wege stehen offen.</em></h2>
     </div>
 
     <div class="referral-grid reveal-scroll-group">
       <article class="referral-card">
-        <div class="referral-num">Option 01</div>
         <h3>Kostenfreies Erstgespräch</h3>
-        <p>Ein kurzer, unverbindlicher Austausch per Telefon oder E-Mail. Ideal, um erste Fragen zu klären und einzuschätzen, ob die Orientierungsberatung der richtige nächste Schritt für Sie ist.</p>
-        <ul class="referral-meta">
-          <li><span>Format</span><strong>Telefon oder E-Mail</strong></li>
-          <li><span>Kosten</span><strong>Kostenfrei</strong></li>
-          <li><span>Ergebnis</span><strong>Persönliche Einschätzung</strong></li>
-        </ul>
+        <p>Kurzer, unverbindlicher Austausch per Telefon oder E-Mail — kostenfrei.</p>
         <a href="#kontakt" class="referral-cta" data-anliegen="Kostenfreies Erstgespräch">Kostenfrei anfragen</a>
       </article>
 
       <article class="referral-card">
-        <div class="referral-num">Option 02</div>
         <h3>Orientierungsberatung Bewertung</h3>
-        <p>Das strukturierte 90-minütige Format mit individueller Vorbereitung, fundierter Einordnung und schriftlicher Zusammenfassung als Entscheidungsgrundlage.</p>
-        <ul class="referral-meta">
-          <li><span>Format</span><strong>Videokonferenz, 90 Min.</strong></li>
-          <li><span>Kosten</span><strong>ab 585,00 €</strong></li>
-          <li><span>Ergebnis</span><strong>Schriftliche Zusammenfassung</strong></li>
-        </ul>
+        <p>90-minütiges Format mit Vorbereitung und schriftlicher Zusammenfassung — ab 585,00 €.</p>
         <a href="#kontakt" class="referral-cta" data-anliegen="Orientierungsberatung Bewertung">Beratungstermin anfragen</a>
       </article>
     </div>
@@ -2026,6 +1981,7 @@
               <option value="Kostenfreies Erstgespräch">Kostenfreies Erstgespräch (unverbindlich)</option>
               <option value="Orientierungsberatung Bewertung" selected>Orientierungsberatung Bewertung (90 Min.)</option>
             </select>
+            <p class="hero-secondary-note" style="margin-top: 0.6rem;">Unsicher, was passt? <a href="#erster-schritt">Unterschiede vergleichen</a>.</p>
           </div>
           <div class="form-field">
             <label for="af-name">Vor- und Nachname *</label>
@@ -2189,7 +2145,7 @@
   (function () {
     var select = document.getElementById('af-anliegen');
     if (!select) return;
-    document.querySelectorAll('.referral-cta[data-anliegen]').forEach(function (link) {
+    document.querySelectorAll('[data-anliegen]').forEach(function (link) {
       link.addEventListener('click', function () {
         select.value = this.dataset.anliegen;
       });
