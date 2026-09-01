@@ -201,7 +201,7 @@
   .erster-schritt-band {
     background:
       linear-gradient(rgba(243, 239, 227, 0.85), rgba(243, 239, 227, 0.92)),
-      url('chart-taschenrechner-bewertung.jpg') center 45% / cover no-repeat;
+      url('kompass-hand-goldene-stunde.jpg') center 40% / cover no-repeat;
   }
   .booking-section.naechster-schritt-band {
     background:
@@ -320,21 +320,20 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.65rem 1.2rem;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    border: 1px solid var(--color-rule-soft);
+    background: var(--color-ink);
+    color: var(--color-bg);
     font-weight: 700;
     font-size: 0.78rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     white-space: nowrap;
-    box-shadow: 0 10px 24px -14px rgba(44, 44, 44, 0.35);
-    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 10px 24px -14px rgba(44, 44, 44, 0.5);
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .header-cta:hover {
-    color: var(--color-green-deep);
-    border-color: var(--color-green);
-    box-shadow: 0 14px 28px -14px rgba(94, 140, 32, 0.4);
+    background: var(--color-green-deep);
+    color: var(--color-bg);
+    box-shadow: 0 14px 28px -14px rgba(94, 140, 32, 0.5);
     transform: translateY(-1px);
   }
   @media (max-width: 720px) {
@@ -384,21 +383,21 @@
     align-items: center;
     gap: 0.6rem;
     padding: 1.1rem 2rem;
-    background: var(--color-paper);
-    color: var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-bg);
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    border: 1px solid var(--color-rule-soft);
+    border: none;
     cursor: pointer;
-    box-shadow: 0 16px 34px -16px rgba(44, 44, 44, 0.4);
-    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 16px 34px -16px rgba(44, 44, 44, 0.55);
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .hero-cta:hover {
-    color: var(--color-green-deep);
-    border-color: var(--color-green);
-    box-shadow: 0 22px 44px -16px rgba(94, 140, 32, 0.45);
+    background: var(--color-green-deep);
+    color: var(--color-bg);
+    box-shadow: 0 22px 44px -16px rgba(94, 140, 32, 0.5);
     transform: translateY(-2px);
   }
   .hero-cta::after {
@@ -929,24 +928,23 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.75rem 1.4rem;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    border: 1px solid var(--color-rule-soft);
+    background: var(--color-ink);
+    color: var(--color-bg);
     font-weight: 700;
     font-size: 0.8rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    box-shadow: 0 12px 26px -14px rgba(44, 44, 44, 0.35);
-    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 12px 26px -14px rgba(44, 44, 44, 0.5);
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .referral-cta::after {
     content: "→";
     transition: transform 0.2s ease;
   }
   .referral-cta:hover {
-    color: var(--color-green-deep);
-    border-color: var(--color-green);
-    box-shadow: 0 16px 32px -14px rgba(94, 140, 32, 0.4);
+    background: var(--color-green-deep);
+    color: var(--color-bg);
+    box-shadow: 0 16px 32px -14px rgba(94, 140, 32, 0.5);
     transform: translateY(-1px);
   }
   .referral-cta:hover::after { transform: translateX(4px); }
@@ -1185,16 +1183,6 @@
     align-items: flex-end;
     gap: 0.65rem;
   }
-  .dot-nav::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: var(--color-rule-soft);
-    transform: translateX(-50%);
-  }
   .dot-nav-item {
     position: relative;
     display: flex;
@@ -1215,13 +1203,13 @@
   .dot-nav-item:hover .dot-nav-dot,
   .dot-nav-item:focus-visible .dot-nav-dot {
     background: var(--color-green);
-    box-shadow: 0 0 0 5px rgba(125, 183, 47, 0.18);
+    box-shadow: 0 0 10px 3px rgba(125, 183, 47, 0.35);
   }
   .dot-nav-item.is-active .dot-nav-dot {
     background: var(--color-green-deep);
     width: 7px;
     height: 28px;
-    box-shadow: 0 0 0 6px rgba(94, 140, 32, 0.16);
+    box-shadow: 0 0 14px 4px rgba(94, 140, 32, 0.4);
   }
   .dot-nav-label {
     position: absolute;
