@@ -1171,6 +1171,79 @@
   .footer-bottom a:hover { color: var(--color-green-deep); }
 
   /* -------------------------------------------------------------
+     Seiten-Navigation (ovale Punkte, rechter Rand)
+     ------------------------------------------------------------- */
+  section[id] { scroll-margin-top: 6.5rem; }
+
+  .dot-nav {
+    position: fixed;
+    top: 50%;
+    right: clamp(0.9rem, 2.6vw, 1.9rem);
+    transform: translateY(-50%);
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.65rem;
+  }
+  .dot-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    margin: -0.4rem;
+  }
+  .dot-nav-dot {
+    display: block;
+    width: 6px;
+    height: 16px;
+    border-radius: 3px;
+    background: var(--color-rule);
+    transition: background 0.25s ease, height 0.25s ease, transform 0.25s ease;
+  }
+  .dot-nav-item:hover .dot-nav-dot,
+  .dot-nav-item:focus-visible .dot-nav-dot {
+    background: var(--color-green);
+  }
+  .dot-nav-item.is-active .dot-nav-dot {
+    background: var(--color-green-deep);
+    height: 26px;
+  }
+  .dot-nav-label {
+    position: absolute;
+    right: calc(100% + 0.9rem);
+    top: 50%;
+    transform: translate(6px, -50%);
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0.5rem 0.85rem;
+    box-shadow: 0 12px 28px -16px rgba(44, 44, 44, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .dot-nav-item:hover .dot-nav-label,
+  .dot-nav-item:focus-visible .dot-nav-label {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+  @media (max-width: 640px) {
+    .dot-nav { right: 0.6rem; gap: 0.5rem; }
+    .dot-nav-dot { width: 5px; height: 13px; }
+    .dot-nav-item.is-active .dot-nav-dot { height: 21px; }
+    .dot-nav-label { font-size: 0.68rem; padding: 0.42rem 0.7rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dot-nav-dot, .dot-nav-label { transition: none; }
+  }
+
+  /* -------------------------------------------------------------
      Reveal on Load
      ------------------------------------------------------------- */
   .reveal {
@@ -1498,9 +1571,25 @@
 <div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
 <!-- =================================================================
+     SEITEN-NAVIGATION (ovale Punkte, rechter Rand)
+     ================================================================= -->
+<nav class="dot-nav" aria-label="Seitennavigation">
+  <a class="dot-nav-item" href="#start" data-section="start"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Start</span></a>
+  <a class="dot-nav-item" href="#worum" data-section="worum"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Worum es geht</span></a>
+  <a class="dot-nav-item" href="#fuerwen" data-section="fuerwen"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Für wen</span></a>
+  <a class="dot-nav-item" href="#leistungen" data-section="leistungen"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Leistungen</span></a>
+  <a class="dot-nav-item" href="#werberaet" data-section="werberaet"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Wer berät</span></a>
+  <a class="dot-nav-item" href="#stimmen" data-section="stimmen"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Stimmen aus der Praxis</span></a>
+  <a class="dot-nav-item" href="#ablauf" data-section="ablauf"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Ablauf</span></a>
+  <a class="dot-nav-item" href="#praktisch" data-section="praktisch"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Praktisches</span></a>
+  <a class="dot-nav-item" href="#erster-schritt" data-section="erster-schritt"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Erster Schritt</span></a>
+  <a class="dot-nav-item" href="#kontakt" data-section="kontakt"><span class="dot-nav-dot" aria-hidden="true"></span><span class="dot-nav-label">Kontakt</span></a>
+</nav>
+
+<!-- =================================================================
      HERO
      ================================================================= -->
-<section class="hero schreibtisch-band">
+<section id="start" class="hero schreibtisch-band">
   <div class="container hero-grid">
     <div>
       <div class="reveal reveal-1">
@@ -1548,7 +1637,7 @@
 <!-- =================================================================
      WORUM ES GEHT
      ================================================================= -->
-<section class="section-bg-soft worum-band">
+<section id="worum" class="section-bg-soft worum-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Worum es geht</span>
@@ -1593,7 +1682,7 @@
 <!-- =================================================================
      FÜR WEN — ZWEI TYPISCHE SITUATIONEN
      ================================================================= -->
-<section class="fuerwen-band">
+<section id="fuerwen" class="fuerwen-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Für wen</span>
@@ -1608,7 +1697,7 @@
         <div class="situation-num">Situation 01</div>
         <h3>Sie stehen am Anfang.</h3>
         <p>
-          Sie möchten verstehen, wie ein Versicherungsmaklerunternehmen bewertet wird — und welche Strukturmerkmale wertbestimmend sind, noch bevor erste Gespräche geführt werden.
+          Gemeinsam arbeiten wir heraus, welche Merkmale Ihres Bestands als Wertetreiber gelten — etwa besondere Sparten, die Zusammensetzung des Bestands oder andere unternehmerische Besonderheiten — und welche Story sich daraus für die Transaktion entwickeln lässt, noch bevor erste Gespräche mit Interessenten geführt werden.
         </p>
       </article>
 
@@ -1616,7 +1705,7 @@
         <div class="situation-num">Situation 02</div>
         <h3>Sie haben bereits eine Bewertung oder ein Kaufpreisangebot.</h3>
         <p>
-          Wir prüfen die Herleitung, hinterfragen Annahmen und ordnen das Ergebnis aus Markt- und Transaktionssicht ein — und ob es zu Ihrem tatsächlichen Wert passt.
+          Wir prüfen die Herleitung, hinterfragen Annahmen und ordnen das Ergebnis aus Markt- und Transaktionssicht ein — und ob die wertbestimmenden Merkmale Ihres Bestands darin angemessen berücksichtigt sind.
         </p>
       </article>
     </div>
@@ -1626,6 +1715,7 @@
       <div class="disclosure-content">
         <ul class="question-list">
           <li><strong style="color: var(--color-ink);">Was ist mein Unternehmen tatsächlich wert — und woraus ergibt sich dieser Wert?</strong><br>Der Unternehmenswert entsteht aus Substanz, Struktur, Vertragslogik, Markt und Käuferperspektive — nicht aus einer festen Kennzahl. In der Orientierungsberatung ordnen wir diese Faktoren für Ihr Maklerunternehmen konkret ein.</li>
+          <li><strong style="color: var(--color-ink);">Welche Bestandsmerkmale wirken als Wertetreiber — und welche Story eignet sich für die Transaktion?</strong><br>Wir erörtern gemeinsam, welche Eigenschaften Ihres Bestands aus Käufersicht besonders überzeugen — etwa Perlensparten, die Bestandszusammensetzung oder andere unternehmerische Besonderheiten — und wie sich daraus eine stimmige Story für die Transaktion entwickeln lässt.</li>
           <li><strong style="color: var(--color-ink);">Wie entstehen Kaufpreise im Maklermarkt — und warum sind Multiples nur ein Ausgangspunkt?</strong><br>Professionelle Erwerber kalkulieren mit eigenen Margen, prüfen Risiken im Bestand und steuern die Kaufpreishöhe über Vertragsstruktur und erfolgsabhängige Parameter — Multiples sind dabei nur der Ausgangspunkt, nicht das Ergebnis.</li>
           <li><strong style="color: var(--color-ink);">Welche Vertrags- und Zahlungsmechanismen beeinflussen den tatsächlichen Erlös?</strong><br>Mechanismen wie Earn-out-Regelungen und Anpassungsklauseln bestimmen, welcher Kaufpreis am Ende tatsächlich beim Verkäufer ankommt — unabhängig vom zunächst genannten Angebot.</li>
           <li><strong style="color: var(--color-ink);">Ist eine vorliegende Bewertung oder ein Kaufpreisangebot tragfähig?</strong><br>Wir prüfen die Herleitung, hinterfragen die zugrunde gelegten Annahmen und ordnen das Ergebnis aus Markt- und Transaktionssicht ein.</li>
@@ -1643,7 +1733,7 @@
 <!-- =================================================================
      LEISTUNGEN — auf dunklem Hintergrund
      ================================================================= -->
-<section class="section-bg-ink leistungen-band">
+<section id="leistungen" class="section-bg-ink leistungen-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Leistungen</span>
@@ -1709,7 +1799,7 @@
 <!-- =================================================================
      WER BERÄT
      ================================================================= -->
-<section class="section-bg-soft werberaet-band">
+<section id="werberaet" class="section-bg-soft werberaet-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Wer berät</span>
@@ -1746,7 +1836,7 @@
 <!-- =================================================================
      STIMMEN AUS DER PRAXIS (anonymisiert)
      ================================================================= -->
-<section class="section-bg-ink stimmen-band">
+<section id="stimmen" class="section-bg-ink stimmen-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Stimmen aus der Praxis</span>
@@ -1776,7 +1866,7 @@
 <!-- =================================================================
      ABLAUF
      ================================================================= -->
-<section class="ablauf-band">
+<section id="ablauf" class="ablauf-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Ablauf</span>
@@ -1812,7 +1902,7 @@
 <!-- =================================================================
      PRAKTISCHE INFO / INVESTITION
      ================================================================= -->
-<section class="section-bg-soft praktisch-band">
+<section id="praktisch" class="section-bg-soft praktisch-band">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Praktisches</span>
@@ -1854,7 +1944,7 @@
 <!-- =================================================================
      ERSTER SCHRITT — KOSTENFREIES ERSTGESPRÄCH ODER ORIENTIERUNGSBERATUNG
      ================================================================= -->
-<section class="section-bg-soft">
+<section id="erster-schritt" class="section-bg-soft">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Erster Schritt</span>
@@ -2036,6 +2126,32 @@
 </footer>
 
 <script>
+  // Aktiven Punkt in der Seiten-Navigation je nach Scroll-Position markieren.
+  (function () {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length || !('IntersectionObserver' in window)) return;
+
+    var itemsBySection = {};
+    items.forEach(function (item) { itemsBySection[item.dataset.section] = item; });
+
+    var setActive = function (id) {
+      items.forEach(function (item) {
+        item.classList.toggle('is-active', item.dataset.section === id);
+      });
+    };
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    Object.keys(itemsBySection).forEach(function (id) {
+      var section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+  })();
+
   // Sanftes Einblenden von Abschnitten beim Herunterscrollen.
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
