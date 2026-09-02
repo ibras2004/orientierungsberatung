@@ -365,6 +365,12 @@
   .brand-divider span:nth-child(1) { background: var(--color-ink); }
   .brand-divider span:nth-child(2) { background: var(--color-green); }
   .brand-divider span:nth-child(3) { background: var(--color-green-tint); }
+  .footer-divider {
+    height: 8px;
+    box-shadow: 0 8px 20px -10px rgba(44, 44, 44, 0.3);
+    position: relative;
+    z-index: 1;
+  }
 
   /* -------------------------------------------------------------
      Header
@@ -2217,7 +2223,7 @@
   </div>
 </section>
 
-<div class="brand-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="brand-divider footer-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 <!-- =================================================================
      FOOTER
      ================================================================= -->
