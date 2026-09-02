@@ -246,54 +246,96 @@
   .section-bg-ink .eyebrow { color: var(--color-green-deep); }
   .section-bg-ink .lead    { color: var(--color-ink-soft); }
   .leistungen-band {
+    --band-tint: 232, 228, 216;
     background:
       linear-gradient(rgba(232, 228, 216, 0.93), rgba(232, 228, 216, 0.93)),
       url('dartscheibe-praezision.jpg') center 35% / cover no-repeat;
+    background-attachment: fixed;
   }
   .stimmen-band {
+    --band-tint: 232, 228, 216;
     background:
       linear-gradient(rgba(232, 228, 216, 0.68), rgba(232, 228, 216, 0.8)),
       url('segelboot-see.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
   .praktisch-band {
+    --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.93), rgba(243, 239, 227, 0.93)),
       url('strand-horizont-weitblick.jpg') center 55% / cover no-repeat;
+    background-attachment: fixed;
   }
   .hero.schreibtisch-band {
     background:
       linear-gradient(rgba(250, 247, 240, 0.7), rgba(250, 247, 240, 0.82)),
       url('schreibtisch-planung.jpg') center 42% / cover no-repeat;
+    background-attachment: fixed;
   }
   .worum-band {
+    --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
       url('kompass-landkarte.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
   .fuerwen-band {
+    --band-tint: 250, 247, 240;
     background:
       linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
       url('steine-balance.jpg') center 42% / cover no-repeat;
+    background-attachment: fixed;
   }
   .werberaet-band {
+    --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
       url('buero-orchidee-buecherregal.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
   .ablauf-band {
+    --band-tint: 250, 247, 240;
     background:
       linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
       url('strasse-horizont.jpg') center 55% / cover no-repeat;
+    background-attachment: fixed;
   }
   .erster-schritt-band {
+    --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.8), rgba(243, 239, 227, 0.9)),
       url('matt-hardy-wasser.jpg') center 55% / cover no-repeat;
+    background-attachment: fixed;
   }
   .booking-section.naechster-schritt-band {
+    --band-tint: 232, 240, 213;
     background:
       linear-gradient(rgba(232, 240, 213, 0.68), rgba(232, 240, 213, 0.8)),
       url('gipfel-weitblick.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* Weicher Verlauf am oberen Rand jedes Bild-Abschnitts, blendet die
+     Kante zum vorherigen Abschnitt aus statt hartem Schnitt. */
+  .band-fade { position: relative; }
+  .band-fade::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(var(--band-tint), 0.95), rgba(var(--band-tint), 0));
+    pointer-events: none;
+    z-index: -1;
+  }
+  @media (max-width: 640px) {
+    .band-fade::before { height: 70px; }
+  }
+  @media (max-width: 900px), (prefers-reduced-motion: reduce) {
+    .leistungen-band, .stimmen-band, .praktisch-band, .hero.schreibtisch-band,
+    .worum-band, .fuerwen-band, .werberaet-band, .ablauf-band,
+    .erster-schritt-band, .booking-section.naechster-schritt-band {
+      background-attachment: scroll;
+    }
   }
 
   /* -------------------------------------------------------------
@@ -1393,11 +1435,16 @@
      Große, zentrierte Zitat-Sektion (Signatur-Moment)
      ------------------------------------------------------------- */
   .quote-band {
+    --band-tint: 232, 240, 213;
     background:
       linear-gradient(rgba(232, 240, 213, 0.68), rgba(232, 240, 213, 0.8)),
       url('buero-haende-warten-laptop.jpg') center 60% / cover no-repeat;
+    background-attachment: fixed;
     position: relative;
     overflow: hidden;
+  }
+  @media (max-width: 900px), (prefers-reduced-motion: reduce) {
+    .quote-band { background-attachment: scroll; }
   }
   .quote-band .container {
     max-width: 880px;
@@ -1728,7 +1775,7 @@
 <!-- =================================================================
      WORUM ES GEHT
      ================================================================= -->
-<section id="worum" class="section-bg-soft worum-band">
+<section id="worum" class="section-bg-soft worum-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Worum es geht</span>
@@ -1760,7 +1807,7 @@
 <!-- =================================================================
      WER BERÄT
      ================================================================= -->
-<section id="werberaet" class="section-bg-soft werberaet-band">
+<section id="werberaet" class="section-bg-soft werberaet-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Wer berät</span>
@@ -1797,7 +1844,7 @@
 <!-- =================================================================
      SIGNATUR-ZITAT
      ================================================================= -->
-<section class="quote-band">
+<section class="quote-band band-fade">
   <div class="container">
     <blockquote class="reveal-scroll">
       „Wir begleiten Versicherungsmakler nicht zum bestmöglichen Verkauf um jeden Preis — sondern zu einer Entscheidung, die sie auch in fünf Jahren noch genauso treffen würden."
@@ -1810,7 +1857,7 @@
 <!-- =================================================================
      FÜR WEN — ZWEI TYPISCHE SITUATIONEN
      ================================================================= -->
-<section id="fuerwen" class="fuerwen-band">
+<section id="fuerwen" class="fuerwen-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Für wen</span>
@@ -1861,7 +1908,7 @@
 <!-- =================================================================
      LEISTUNGEN — auf dunklem Hintergrund
      ================================================================= -->
-<section id="leistungen" class="section-bg-ink leistungen-band">
+<section id="leistungen" class="section-bg-ink leistungen-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Leistungen</span>
@@ -1926,7 +1973,7 @@
 <!-- =================================================================
      STIMMEN AUS DER PRAXIS (anonymisiert)
      ================================================================= -->
-<section id="stimmen" class="section-bg-ink stimmen-band">
+<section id="stimmen" class="section-bg-ink stimmen-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Stimmen aus der Praxis</span>
@@ -1956,7 +2003,7 @@
 <!-- =================================================================
      ABLAUF
      ================================================================= -->
-<section id="ablauf" class="ablauf-band">
+<section id="ablauf" class="ablauf-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Ablauf</span>
@@ -1992,7 +2039,7 @@
 <!-- =================================================================
      PRAKTISCHE INFO / INVESTITION
      ================================================================= -->
-<section id="praktisch" class="section-bg-soft praktisch-band">
+<section id="praktisch" class="section-bg-soft praktisch-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Praktisches</span>
@@ -2034,7 +2081,7 @@
 <!-- =================================================================
      ERSTER SCHRITT — KOSTENFREIES ERSTGESPRÄCH ODER ORIENTIERUNGSBERATUNG
      ================================================================= -->
-<section id="erster-schritt" class="section-bg-soft erster-schritt-compact erster-schritt-band">
+<section id="erster-schritt" class="section-bg-soft erster-schritt-compact erster-schritt-band band-fade">
   <div class="container">
     <div class="section-head reveal-scroll">
       <span class="eyebrow">Erster Schritt</span>
@@ -2060,7 +2107,7 @@
 <!-- =================================================================
      KONTAKT & NÄCHSTER SCHRITT
      ================================================================= -->
-<section id="kontakt" class="booking-section naechster-schritt-band" style="scroll-margin-top: 6.5rem;">
+<section id="kontakt" class="booking-section naechster-schritt-band band-fade" style="scroll-margin-top: 6.5rem;">
   <div class="container">
     <div class="booking-head">
       <span class="eyebrow">Kontakt &amp; nächster Schritt</span>
