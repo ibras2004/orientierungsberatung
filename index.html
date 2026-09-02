@@ -503,7 +503,9 @@
      Rhythmus Foto / Farbverlauf / Foto ueber die Seite
      ------------------------------------------------------------- */
   .section-gradient {
-    background: linear-gradient(to bottom, var(--color-green-tint), var(--color-bg-soft));
+    background:
+      radial-gradient(circle at 10% 0%, rgba(125, 183, 47, 0.24), transparent 55%),
+      linear-gradient(155deg, var(--color-green-tint) 0%, var(--color-bg-soft) 55%, var(--color-bg) 100%);
   }
   .hero-grid {
     display: grid;
@@ -1460,7 +1462,9 @@
      Große, zentrierte Zitat-Sektion (Signatur-Moment)
      ------------------------------------------------------------- */
   .quote-band {
-    background: linear-gradient(to bottom, var(--color-green-tint), var(--color-bg-soft));
+    background:
+      radial-gradient(circle at 90% 100%, rgba(125, 183, 47, 0.24), transparent 55%),
+      linear-gradient(155deg, var(--color-green-tint) 0%, var(--color-bg-soft) 55%, var(--color-bg) 100%);
     position: relative;
     overflow: hidden;
   }
