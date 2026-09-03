@@ -250,59 +250,69 @@
     background:
       linear-gradient(rgba(232, 228, 216, 0.93), rgba(232, 228, 216, 0.93)),
       url('dartscheibe-praezision.jpg') center 35% / cover no-repeat;
+    background-attachment: fixed;
   }
   .stimmen-band {
     --band-tint: 232, 228, 216;
     background:
       linear-gradient(rgba(232, 228, 216, 0.68), rgba(232, 228, 216, 0.8)),
       url('segelboot-see.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
   .praktisch-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.93), rgba(243, 239, 227, 0.93)),
       url('strand-horizont-weitblick.jpg') center 55% / cover no-repeat;
+    background-attachment: fixed;
   }
   .hero.schreibtisch-band {
     background:
       linear-gradient(rgba(250, 247, 240, 0.7), rgba(250, 247, 240, 0.82)),
       url('schreibtisch-planung.jpg') center 42% / cover no-repeat;
+    background-attachment: fixed;
   }
   .worum-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
       url('kompass-landkarte.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
   .fuerwen-band {
     --band-tint: 250, 247, 240;
     background:
       linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
       url('steine-balance.jpg') center 42% / cover no-repeat;
+    background-attachment: fixed;
   }
   .werberaet-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
       url('buero-orchidee-buecherregal.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
   .ablauf-band {
     --band-tint: 250, 247, 240;
     background:
       linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
       url('strasse-horizont.jpg') center 55% / cover no-repeat;
+    background-attachment: fixed;
   }
   .erster-schritt-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.8), rgba(243, 239, 227, 0.9)),
       url('matt-hardy-wasser.jpg') center 55% / cover no-repeat;
+    background-attachment: fixed;
   }
   .booking-section.naechster-schritt-band {
     --band-tint: 232, 240, 213;
     background:
       linear-gradient(rgba(232, 240, 213, 0.68), rgba(232, 240, 213, 0.8)),
       url('gipfel-weitblick.jpg') center 40% / cover no-repeat;
+    background-attachment: fixed;
   }
 
   /* Weicher Verlauf am oberen Rand jedes Bild-Abschnitts, blendet die
@@ -319,6 +329,13 @@
   }
   @media (max-width: 640px) {
     .band-fade::before { height: 70px; }
+  }
+  @media (max-width: 900px), (prefers-reduced-motion: reduce) {
+    .leistungen-band, .stimmen-band, .praktisch-band, .hero.schreibtisch-band,
+    .worum-band, .fuerwen-band, .werberaet-band, .ablauf-band,
+    .erster-schritt-band, .booking-section.naechster-schritt-band {
+      background-attachment: scroll;
+    }
   }
   /* -------------------------------------------------------------
      ibras Logo-Akzent (Schwarz / Grün / Hellgrün-Balken)
