@@ -876,6 +876,7 @@
      Wer beraet — freigestelltes Portraet statt Foto-Karte
      ------------------------------------------------------------- */
   .speaker-feature {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     align-items: end;
@@ -883,16 +884,12 @@
     max-width: 980px;
     margin: 0 auto;
   }
-  @media (min-width: 800px) {
-    .speaker-feature {
-      grid-template-columns: 1fr 0.95fr;
-      gap: 1.5rem;
-    }
-  }
   .speaker-card--feature {
     background: none;
     border: none;
     padding-bottom: clamp(0.5rem, 4vw, 2.5rem);
+    position: relative;
+    z-index: 2;
   }
   .speaker-feature-portrait {
     position: relative;
@@ -900,11 +897,21 @@
     align-items: flex-end;
     justify-content: center;
     min-height: 320px;
+    z-index: 1;
   }
   .speaker-feature-frame {
     position: relative;
     width: 100%;
     max-width: 400px;
+  }
+  @media (min-width: 800px) {
+    .speaker-card--feature { max-width: 480px; padding-bottom: 0; }
+    .speaker-feature-portrait {
+      position: absolute;
+      right: 0;
+      bottom: calc(-1 * clamp(4.5rem, 9vw, 8rem));
+      min-height: 0;
+    }
   }
   .speaker-feature-backdrop {
     position: absolute;
@@ -1941,8 +1948,8 @@
       </p>
     </div>
 
-    <div class="speaker-feature reveal-scroll-group">
-      <div class="speaker-card speaker-card--feature">
+    <div class="speaker-feature">
+      <div class="speaker-card speaker-card--feature reveal-scroll">
         <div class="role">Sachverständiger · ibras</div>
         <h3>Christian Lüth</h3>
         <p class="title-line">Geschäftsführender Gesellschafter ibras<sup>®</sup> GmbH &amp; Co. KG</p>
