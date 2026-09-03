@@ -250,69 +250,59 @@
     background:
       linear-gradient(rgba(232, 228, 216, 0.93), rgba(232, 228, 216, 0.93)),
       url('dartscheibe-praezision.jpg') center 35% / cover no-repeat;
-    background-attachment: fixed;
   }
   .stimmen-band {
     --band-tint: 232, 228, 216;
     background:
       linear-gradient(rgba(232, 228, 216, 0.68), rgba(232, 228, 216, 0.8)),
       url('segelboot-see.jpg') center 40% / cover no-repeat;
-    background-attachment: fixed;
   }
   .praktisch-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.93), rgba(243, 239, 227, 0.93)),
       url('strand-horizont-weitblick.jpg') center 55% / cover no-repeat;
-    background-attachment: fixed;
   }
   .hero.schreibtisch-band {
     background:
       linear-gradient(rgba(250, 247, 240, 0.7), rgba(250, 247, 240, 0.82)),
       url('schreibtisch-planung.jpg') center 42% / cover no-repeat;
-    background-attachment: fixed;
   }
   .worum-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
       url('kompass-landkarte.jpg') center 40% / cover no-repeat;
-    background-attachment: fixed;
   }
   .fuerwen-band {
     --band-tint: 250, 247, 240;
     background:
       linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
       url('steine-balance.jpg') center 42% / cover no-repeat;
-    background-attachment: fixed;
   }
   .werberaet-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.72), rgba(243, 239, 227, 0.85)),
       url('buero-orchidee-buecherregal.jpg') center 40% / cover no-repeat;
-    background-attachment: fixed;
   }
   .ablauf-band {
     --band-tint: 250, 247, 240;
     background:
       linear-gradient(rgba(250, 247, 240, 0.72), rgba(250, 247, 240, 0.85)),
       url('strasse-horizont.jpg') center 55% / cover no-repeat;
-    background-attachment: fixed;
   }
   .erster-schritt-band {
     --band-tint: 243, 239, 227;
     background:
       linear-gradient(rgba(243, 239, 227, 0.8), rgba(243, 239, 227, 0.9)),
       url('matt-hardy-wasser.jpg') center 55% / cover no-repeat;
-    background-attachment: fixed;
   }
   .booking-section.naechster-schritt-band {
     --band-tint: 232, 240, 213;
     background:
       linear-gradient(rgba(232, 240, 213, 0.68), rgba(232, 240, 213, 0.8)),
       url('gipfel-weitblick.jpg') center 40% / cover no-repeat;
-    background-attachment: fixed;
   }
 
   /* Weicher Verlauf am oberen Rand jedes Bild-Abschnitts, blendet die
@@ -330,14 +320,6 @@
   @media (max-width: 640px) {
     .band-fade::before { height: 70px; }
   }
-  @media (max-width: 900px), (prefers-reduced-motion: reduce) {
-    .leistungen-band, .stimmen-band, .praktisch-band, .hero.schreibtisch-band,
-    .worum-band, .fuerwen-band, .werberaet-band, .ablauf-band,
-    .erster-schritt-band, .booking-section.naechster-schritt-band {
-      background-attachment: scroll;
-    }
-  }
-
   /* -------------------------------------------------------------
      ibras Logo-Akzent (Schwarz / Grün / Hellgrün-Balken)
      ------------------------------------------------------------- */
@@ -876,6 +858,67 @@
   .speaker-card .vita li:last-child { margin-bottom: 0; }
 
   /* -------------------------------------------------------------
+     Wer beraet — freigestelltes Portraet statt Foto-Karte
+     ------------------------------------------------------------- */
+  .speaker-feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: end;
+    gap: 3rem;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  @media (min-width: 800px) {
+    .speaker-feature {
+      grid-template-columns: 1fr 0.95fr;
+      gap: 1.5rem;
+    }
+  }
+  .speaker-card--feature {
+    background: none;
+    border: none;
+    padding-bottom: clamp(0.5rem, 4vw, 2.5rem);
+  }
+  .speaker-feature-portrait {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 320px;
+  }
+  .speaker-feature-backdrop {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    width: 82%;
+    aspect-ratio: 1;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 42% 38%, var(--color-green-tint) 0%, rgba(232, 240, 213, 0.5) 55%, rgba(232, 240, 213, 0) 78%);
+    z-index: 0;
+  }
+  .speaker-feature-marks {
+    position: absolute;
+    top: 6%;
+    right: 4%;
+    z-index: 2;
+  }
+  .speaker-feature-marks span { width: 30px; height: 8px; }
+  .speaker-feature-portrait img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 28px 36px rgba(44, 44, 44, 0.3));
+  }
+  @media (max-width: 799px) {
+    .speaker-feature-portrait { order: -1; }
+    .speaker-feature-portrait img { max-width: 280px; }
+  }
+
+  /* -------------------------------------------------------------
      Ablauf-Timeline
      ------------------------------------------------------------- */
   .program {
@@ -946,12 +989,29 @@
     border-right: 1px solid var(--color-rule);
     border-bottom: 1px solid var(--color-rule);
     background: rgba(255, 255, 255, 0.4);
+    position: relative;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, background 0.28s ease;
+  }
+  .topic:hover, .topic:focus-within {
+    transform: scale(1.045);
+    background: var(--color-paper);
+    box-shadow: 0 20px 38px -20px rgba(0, 0, 0, 0.4);
+    z-index: 2;
   }
   .topic .topic-icon {
     width: 54px;
     height: 54px;
     margin-bottom: 1rem;
     display: block;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .topic:hover .topic-icon, .topic:focus-within .topic-icon {
+    transform: scale(1.14) rotate(-3deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .topic, .topic .topic-icon { transition: none; }
+    .topic:hover, .topic:focus-within { transform: none; }
+    .topic:hover .topic-icon, .topic:focus-within .topic-icon { transform: none; }
   }
   .topic .num {
     font-family: var(--font-display);
@@ -1854,26 +1914,26 @@
       </p>
     </div>
 
-    <div class="speakers-grid reveal-scroll-group" style="grid-template-columns: 1fr; max-width: 460px; margin: 0 auto;">
-      <article class="speaker-card">
-        <div class="speaker-photo" data-initials="CL">
-          <img src="christian-lueth.jpg" alt="Christian Lüth" onerror="this.parentElement.classList.add('no-photo'); this.remove();">
-        </div>
-        <div class="speaker-content">
-          <div class="role">Sachverständiger · ibras</div>
-          <h3>Christian Lüth</h3>
-          <p class="title-line">Geschäftsführender Gesellschafter ibras<sup>®</sup> GmbH &amp; Co. KG</p>
-          <ul class="vita">
-            <li>Jahrgang 1964</li>
-            <li>Seit 1984 in der Versicherungswirtschaft tätig</li>
-            <li>Über 30-jährige Erfahrung als Versicherungsmakler</li>
-            <li>Sachverständiger für Unternehmens- und Bestandsbewertung</li>
-            <li>Weiterbildung beim Institut für Sachverständigenwesen e. V. Köln (IfS)</li>
-            <li>Autor zahlreicher Fachbeiträge</li>
-            <li>Gründungsgesellschafter der ibras<sup>®</sup> im Jahr 2004</li>
-          </ul>
-        </div>
-      </article>
+    <div class="speaker-feature reveal-scroll-group">
+      <div class="speaker-card speaker-card--feature">
+        <div class="role">Sachverständiger · ibras</div>
+        <h3>Christian Lüth</h3>
+        <p class="title-line">Geschäftsführender Gesellschafter ibras<sup>®</sup> GmbH &amp; Co. KG</p>
+        <ul class="vita">
+          <li>Jahrgang 1964</li>
+          <li>Seit 1984 in der Versicherungswirtschaft tätig</li>
+          <li>Über 30-jährige Erfahrung als Versicherungsmakler</li>
+          <li>Sachverständiger für Unternehmens- und Bestandsbewertung</li>
+          <li>Weiterbildung beim Institut für Sachverständigenwesen e. V. Köln (IfS)</li>
+          <li>Autor zahlreicher Fachbeiträge</li>
+          <li>Gründungsgesellschafter der ibras<sup>®</sup> im Jahr 2004</li>
+        </ul>
+      </div>
+      <div class="speaker-feature-portrait">
+        <span class="speaker-feature-backdrop" aria-hidden="true"></span>
+        <span class="speaker-feature-marks accent-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        <img src="christian-lueth-freigestellt.webp" alt="Christian Lüth" width="1100" height="1337" onerror="this.closest('.speaker-feature-portrait').style.display='none';">
+      </div>
     </div>
   </div>
 </section>
@@ -2159,12 +2219,7 @@
         <div class="form-success" role="status">
           Vielen Dank für Ihre Anfrage. Wir melden uns i. d. R. innerhalb von 2 Werktagen mit einem Terminvorschlag.
         </div>
-        <form class="booking-form" action="https://formsubmit.co/info@ibras.de" method="POST">
-          <input type="hidden" name="_subject" value="Neue Anfrage über orientierungsberatung.de">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://orientierungsberatung.de/?gesendet=1#kontakt">
-
+        <form class="booking-form" action="/api/kontakt" method="POST">
           <div class="form-field">
             <label for="af-anliegen">Worum geht es?</label>
             <select id="af-anliegen" name="Anliegen">

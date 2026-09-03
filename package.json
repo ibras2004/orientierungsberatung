@@ -1,0 +1,9 @@
+{
+  "name": "orientierungsberatung-de",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Landingpage orientierungsberatung.de – statisches HTML plus eine Vercel-Funktion fuer den Formularversand per SMTP.",
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  }
+}
