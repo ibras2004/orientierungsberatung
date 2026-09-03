@@ -1571,35 +1571,31 @@
   }
 
   /* -------------------------------------------------------------
-     Stimmen aus der Praxis (anonymisierte Testimonials) — Rondell
+     Stimmen aus der Praxis (anonymisierte Testimonials)
      ------------------------------------------------------------- */
-  .testimonial-carousel {
-    position: relative;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .testimonial-track {
+  .testimonial-grid {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 760px) {
+    .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
   }
   .testimonial-card {
-    grid-area: 1 / 1;
     background: var(--color-paper);
     border-top: 3px solid var(--color-green);
-    padding: 2.2rem 2.1rem;
+    padding: 2rem 1.9rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     box-shadow: 0 24px 48px -32px rgba(44, 44, 44, 0.24);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 0.7s ease, transform 0.7s ease, visibility 0s linear 0.7s;
+    cursor: pointer;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
   }
-  .testimonial-card.is-active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+  .testimonial-card:hover, .testimonial-card:focus-visible {
+    box-shadow: 0 28px 52px -30px rgba(44, 44, 44, 0.38);
+    transform: translateY(-2px);
+    outline: none;
   }
   .testimonial-card .quote-mark {
     font-family: var(--font-display);
@@ -1612,10 +1608,21 @@
     margin: 0;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 1.15rem;
-    line-height: 1.55;
+    font-size: 1.08rem;
+    line-height: 1.5;
     color: var(--color-ink);
   }
+  .testimonial-card.is-typing p::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 2px;
+    background: var(--color-green);
+    vertical-align: text-bottom;
+    animation: testimonialCursor 0.8s steps(1) infinite;
+  }
+  @keyframes testimonialCursor { 50% { opacity: 0; } }
   .testimonial-card footer {
     margin-top: auto;
     font-family: var(--font-body);
@@ -1624,29 +1631,6 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-ink-muted);
-  }
-  .testimonial-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-top: 1.8rem;
-  }
-  .testimonial-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-    background: var(--color-ink-muted);
-    opacity: 0.4;
-    cursor: pointer;
-    transition: opacity 0.25s ease, background 0.25s ease, transform 0.25s ease;
-  }
-  .testimonial-dot:hover { opacity: 0.7; }
-  .testimonial-dot.is-active {
-    background: var(--color-green);
-    opacity: 1;
-    transform: scale(1.25);
   }
 
   /* -------------------------------------------------------------
@@ -2111,29 +2095,22 @@
       <h2>Was Versicherungsmakler <em>nach der Beratung sagen.</em></h2>
     </div>
 
-    <div class="testimonial-carousel reveal-scroll" data-carousel>
-      <div class="testimonial-track">
-        <article class="testimonial-card is-active">
-          <div class="quote-mark" aria-hidden="true">„</div>
-          <p>Endlich jemand, der mir erklärt hat, wie Kaufpreise wirklich entstehen — nicht nur, was sie am Ende sind.</p>
-          <footer>Versicherungsmakler · Norddeutschland</footer>
-        </article>
-        <article class="testimonial-card">
-          <div class="quote-mark" aria-hidden="true">„</div>
-          <p>Die Beratung hat mir Sicherheit gegeben, bevor ich überhaupt mit einem Käufer gesprochen habe.</p>
-          <footer>Geschäftsführender Gesellschafter · Maklerunternehmen</footer>
-        </article>
-        <article class="testimonial-card">
-          <div class="quote-mark" aria-hidden="true">„</div>
-          <p>Diskret, fundiert und ohne Verkaufsdruck — genau das, was ich für diese Entscheidung gebraucht habe.</p>
-          <footer>Inhaberin · Versicherungsmaklerbüro</footer>
-        </article>
-      </div>
-      <div class="testimonial-dots" role="tablist" aria-label="Weitere Stimmen anzeigen">
-        <button type="button" class="testimonial-dot is-active" role="tab" aria-selected="true" aria-label="Stimme 1 von 3"></button>
-        <button type="button" class="testimonial-dot" role="tab" aria-selected="false" aria-label="Stimme 2 von 3"></button>
-        <button type="button" class="testimonial-dot" role="tab" aria-selected="false" aria-label="Stimme 3 von 3"></button>
-      </div>
+    <div class="testimonial-grid reveal-scroll-group">
+      <article class="testimonial-card" tabindex="0" role="button" aria-label="Zitat nochmal wie live gesprochen anzeigen">
+        <div class="quote-mark" aria-hidden="true">„</div>
+        <p>Endlich jemand, der mir erklärt hat, wie Kaufpreise wirklich entstehen — nicht nur, was sie am Ende sind.</p>
+        <footer>Versicherungsmakler · Norddeutschland</footer>
+      </article>
+      <article class="testimonial-card" tabindex="0" role="button" aria-label="Zitat nochmal wie live gesprochen anzeigen">
+        <div class="quote-mark" aria-hidden="true">„</div>
+        <p>Die Beratung hat mir Sicherheit gegeben, bevor ich überhaupt mit einem Käufer gesprochen habe.</p>
+        <footer>Geschäftsführender Gesellschafter · Maklerunternehmen</footer>
+      </article>
+      <article class="testimonial-card" tabindex="0" role="button" aria-label="Zitat nochmal wie live gesprochen anzeigen">
+        <div class="quote-mark" aria-hidden="true">„</div>
+        <p>Diskret, fundiert und ohne Verkaufsdruck — genau das, was ich für diese Entscheidung gebraucht habe.</p>
+        <footer>Inhaberin · Versicherungsmaklerbüro</footer>
+      </article>
     </div>
   </div>
 </section>
@@ -2449,51 +2426,44 @@
     if (success) success.classList.add('is-visible');
   })();
 
-  // Stimmen aus der Praxis: Rondell mit langsamem automatischem Wechsel.
+  // Stimmen aus der Praxis: Text steht normal da; per Klick/Tastatur wird er
+  // wie live gesprochen noch einmal getippt (persoenlicher Effekt).
   (function () {
-    var carousel = document.querySelector('[data-carousel]');
-    if (!carousel) return;
-    var cards = Array.prototype.slice.call(carousel.querySelectorAll('.testimonial-card'));
-    var dots = Array.prototype.slice.call(carousel.querySelectorAll('.testimonial-dot'));
-    if (cards.length < 2) return;
-
-    var current = 0;
-    var timer = null;
-    var AUTO_DELAY = 6500;
+    var cards = document.querySelectorAll('.testimonial-card');
+    if (!cards.length) return;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
 
-    function show(index) {
-      cards[current].classList.remove('is-active');
-      dots[current].classList.remove('is-active');
-      dots[current].setAttribute('aria-selected', 'false');
-      current = (index + cards.length) % cards.length;
-      cards[current].classList.add('is-active');
-      dots[current].classList.add('is-active');
-      dots[current].setAttribute('aria-selected', 'true');
-    }
+    cards.forEach(function (card) {
+      var p = card.querySelector('p');
+      var fullText = p.textContent;
+      var typing = false;
 
-    function startAuto() {
-      if (reduceMotion) return;
-      stopAuto();
-      timer = window.setInterval(function () { show(current + 1); }, AUTO_DELAY);
-    }
-    function stopAuto() {
-      if (timer) { window.clearInterval(timer); timer = null; }
-    }
+      function typeOut() {
+        if (typing) return;
+        typing = true;
+        card.classList.add('is-typing');
+        p.textContent = '';
+        var i = 0;
+        var timer = window.setInterval(function () {
+          p.textContent += fullText.charAt(i);
+          i++;
+          if (i >= fullText.length) {
+            window.clearInterval(timer);
+            typing = false;
+            card.classList.remove('is-typing');
+          }
+        }, 26);
+      }
 
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        show(i);
-        startAuto();
+      card.addEventListener('click', typeOut);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          typeOut();
+        }
       });
     });
-
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
-    carousel.addEventListener('focusin', stopAuto);
-    carousel.addEventListener('focusout', startAuto);
-
-    startAuto();
   })();
 </script>
 </body>
