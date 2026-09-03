@@ -891,22 +891,16 @@
   }
   .speaker-feature-backdrop {
     position: absolute;
-    top: 0;
+    top: -18%;
     left: 50%;
-    width: 78%;
+    width: 128%;
     aspect-ratio: 1;
     transform: translateX(-50%);
     border-radius: 50%;
-    background: radial-gradient(circle at 42% 38%, var(--color-green-tint) 0%, rgba(232, 240, 213, 0.5) 55%, rgba(232, 240, 213, 0) 78%);
+    background: radial-gradient(circle at 42% 38%, var(--color-green-tint) 0%, rgba(232, 240, 213, 0.55) 40%, rgba(232, 240, 213, 0) 62%);
+    filter: blur(38px);
     z-index: 0;
   }
-  .speaker-feature-marks {
-    position: absolute;
-    top: 2%;
-    right: -3%;
-    z-index: 2;
-  }
-  .speaker-feature-marks span { width: 30px; height: 8px; }
   .speaker-feature-portrait img {
     position: relative;
     z-index: 1;
@@ -1948,7 +1942,6 @@
       <div class="speaker-feature-portrait">
         <div class="speaker-feature-frame">
           <span class="speaker-feature-backdrop" aria-hidden="true"></span>
-          <span class="speaker-feature-marks accent-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           <img src="christian-lueth-freigestellt.webp" alt="Christian Lüth" width="1100" height="1337" onerror="this.closest('.speaker-feature-portrait').style.display='none';">
         </div>
       </div>
