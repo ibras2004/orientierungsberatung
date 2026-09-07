@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 const EMPFAENGER = 'info@ibras.de';
-const ERFOLGS_URL = 'https://orientierungsberatung.de/?gesendet=1#kontakt';
+const SITE_URL = 'https://orientierungsberatung.de';
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -10,6 +10,17 @@ module.exports = async (req, res) => {
   }
 
   const body = req.body || {};
+
+  // Zurueck zur Seite, von der aus das Formular abgeschickt wurde. Nur
+  // site-interne, relative Pfade zulassen (kein offener Redirect).
+  const requestedRedirect = (body._redirect || '').toString().trim();
+  const isSafeRedirect = requestedRedirect.startsWith('/')
+    && !requestedRedirect.startsWith('//')
+    && !requestedRedirect.includes('://')
+    && !/\s/.test(requestedRedirect);
+  const redirectPath = isSafeRedirect ? requestedRedirect : '/';
+  const erfolgsUrl = `${SITE_URL}${redirectPath}${redirectPath.includes('?') ? '&' : '?'}gesendet=1#kontakt`;
+
   const anliegen = (body.Anliegen || '').toString().trim();
   const name = (body.Name || '').toString().trim();
   const email = (body['E-Mail'] || '').toString().trim();
@@ -61,6 +72,6 @@ module.exports = async (req, res) => {
     return;
   }
 
-  res.writeHead(303, { Location: ERFOLGS_URL });
+  res.writeHead(303, { Location: erfolgsUrl });
   res.end();
 };

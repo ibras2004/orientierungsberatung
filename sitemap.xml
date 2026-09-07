@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Root (/) folgt, sobald die eigentliche Formate-Uebersicht steht;
+     bis dahin absichtlich noindex, siehe index.html. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://orientierungsberatung.de/</loc>
+    <loc>https://orientierungsberatung.de/bewertung</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
