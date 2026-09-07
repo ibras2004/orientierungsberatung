@@ -60,7 +60,7 @@ module.exports = async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: `"orientierungsberatung.de" <${process.env.STRATO_SMTP_USER}>`,
+      from: `"ibras® Orientierungsberatung" <${process.env.STRATO_SMTP_USER}>`,
       to: EMPFAENGER,
       replyTo: `"${name}" <${email}>`,
       subject: `Neue Anfrage über orientierungsberatung.de${anliegen ? ': ' + anliegen : ''}`,
