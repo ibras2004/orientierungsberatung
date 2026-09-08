@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Landingpage orientierungsberatung.de – statisches HTML plus eine Vercel-Funktion fuer den Formularversand per SMTP.",
   "dependencies": {
-    "nodemailer": "^6.9.14"
+    "nodemailer": "^6.9.14",
+    "pg": "^8.13.1"
   }
 }

@@ -1,7 +1,23 @@
 const nodemailer = require('nodemailer');
+const { Pool } = require('pg');
 
 const EMPFAENGER = 'info@ibras.de';
 const SITE_URL = 'https://orientierungsberatung.de';
+
+// Pool ueber warme Funktionsaufrufe hinweg wiederverwenden statt bei jeder
+// Anfrage neu zu verbinden (POSTGRES_URL ist bereits die gepoolte Verbindung
+// fuer serverlose Funktionen, siehe Vercel/Supabase-Integration).
+let pgPool;
+function getPgPool() {
+  if (!pgPool) {
+    pgPool = new Pool({
+      connectionString: process.env.POSTGRES_URL,
+      ssl: { rejectUnauthorized: false },
+      max: 1,
+    });
+  }
+  return pgPool;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -138,6 +154,24 @@ module.exports = async (req, res) => {
     console.error('Mailversand fehlgeschlagen:', err);
     res.status(502).send('Der Versand ist fehlgeschlagen. Bitte versuchen Sie es später erneut oder rufen Sie uns direkt an: 038827 / 88868.');
     return;
+  }
+
+  // Zusaetzlich automatisch in der Datenbank ablegen (Zwischenloesung bis
+  // zum geplanten CRM). Rein informativ -- schlaegt das fehl, darf das die
+  // eigentliche Anfrage (E-Mail ist bereits raus) nicht mehr blockieren.
+  if (process.env.POSTGRES_URL) {
+    try {
+      await getPgPool().query(
+        `insert into formular_anfragen
+           (seite, anliegen, name, email, telefon, nachricht, datenschutz_bestaetigt, kontakt_einwilligung, ip_adresse)
+         values ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+        [redirectPath, anliegen || null, name, email, telefon || null, nachricht || null, true, kontakteinwilligung, ipAdresse]
+      );
+    } catch (err) {
+      console.error('Speichern in der Datenbank fehlgeschlagen:', err);
+    }
+  } else {
+    console.error('POSTGRES_URL fehlt als Vercel-Umgebungsvariable -- Anfrage wurde nicht in der Datenbank gespeichert.');
   }
 
   res.writeHead(303, { Location: erfolgsUrl });
