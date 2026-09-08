@@ -3,6 +3,15 @@ const nodemailer = require('nodemailer');
 const EMPFAENGER = 'info@ibras.de';
 const SITE_URL = 'https://orientierungsberatung.de';
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).send('Method Not Allowed');
@@ -80,6 +89,42 @@ module.exports = async (req, res) => {
     '  Widerruf ist jederzeit formlos möglich."',
   ].join('\n');
 
+  const zeile = (label, wert) => `
+    <tr>
+      <td style="padding:7px 14px 7px 0; font-weight:bold; vertical-align:top; width:150px; border-bottom:1px solid #E4DFCF; color:#2C2C2C;">${escapeHtml(label)}</td>
+      <td style="padding:7px 0; vertical-align:top; border-bottom:1px solid #E4DFCF; color:#2C2C2C;">${wert}</td>
+    </tr>`;
+
+  const nachrichtHtml = nachricht
+    ? escapeHtml(nachricht).replace(/\n/g, '<br>')
+    : '–';
+
+  const html = `
+  <div style="font-family: Arial, Helvetica, sans-serif; color:#2C2C2C; max-width:600px; margin:0 auto;">
+    <h2 style="color:#5E8C20; font-size:18px; margin:0 0 18px;">Neue Anfrage über orientierungsberatung.de</h2>
+    <table style="border-collapse:collapse; width:100%; font-size:14px;">
+      ${zeile('Anliegen', escapeHtml(anliegen || '–'))}
+      ${zeile('Name', `<strong>${escapeHtml(name)}</strong>`)}
+      ${zeile('E-Mail', `<a href="mailto:${escapeHtml(email)}" style="color:#5E8C20;">${escapeHtml(email)}</a>`)}
+      ${zeile('Telefon', escapeHtml(telefon || '–'))}
+    </table>
+
+    <h3 style="font-size:15px; margin:24px 0 8px;">Nachricht</h3>
+    <p style="margin:0; padding:12px 14px; background:#FAF7F0; border-left:3px solid #7DB72F; font-size:14px; line-height:1.5;">${nachrichtHtml}</p>
+
+    <h3 style="font-size:15px; margin:24px 0 8px;">Einwilligungen</h3>
+    <table style="border-collapse:collapse; width:100%; font-size:13px; color:#555555;">
+      ${zeile('Datenschutzerklärung bestätigt', '<strong>Ja</strong>')}
+      ${zeile('Kontakt-Einwilligung (weitere Ansprache)', `<strong>${kontakteinwilligung ? 'Ja' : 'Nein'}</strong>`)}
+      ${zeile('Bestätigt am', `${escapeHtml(zeitpunkt)} Uhr`)}
+      ${zeile('IP-Adresse', escapeHtml(ipAdresse))}
+    </table>
+    <p style="font-size:12px; color:#8A8A85; margin-top:14px; line-height:1.5;">
+      Wortlaut Datenschutz-Häkchen: „Es gilt die Datenschutzerklärung der ibras® GmbH &amp; Co. KG."<br><br>
+      Wortlaut Kontakt-Häkchen: „Ich bin außerdem damit einverstanden, dass ibras® mich gelegentlich per E-Mail mit für mich relevanten Einschätzungen zum Maklermarkt kontaktiert. Ein Widerruf ist jederzeit formlos möglich."
+    </p>
+  </div>`;
+
   try {
     await transporter.sendMail({
       from: `"ibras® Orientierungsberatung" <${process.env.STRATO_SMTP_USER}>`,
@@ -87,6 +132,7 @@ module.exports = async (req, res) => {
       replyTo: `"${name}" <${email}>`,
       subject: `Neue Anfrage über orientierungsberatung.de${anliegen ? ': ' + anliegen : ''}`,
       text,
+      html,
     });
   } catch (err) {
     console.error('Mailversand fehlgeschlagen:', err);
