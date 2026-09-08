@@ -26,11 +26,25 @@ module.exports = async (req, res) => {
   const email = (body['E-Mail'] || '').toString().trim();
   const telefon = (body.Telefon || '').toString().trim();
   const nachricht = (body.Nachricht || '').toString().trim();
+  const kontakteinwilligung = (body.Kontakteinwilligung || '').toString().trim() === 'ja';
 
   if (!name || !email) {
     res.status(400).send('Name und E-Mail-Adresse sind erforderlich.');
     return;
   }
+
+  // Nachweis-Daten fuer die beiden Einwilligungen: Zeitpunkt + IP-Adresse,
+  // damit im Streitfall belegbar ist, wann/wie zugestimmt wurde.
+  const zeitpunkt = new Date().toLocaleString('de-DE', {
+    timeZone: 'Europe/Berlin',
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+  const ipAdresse = (
+    req.headers['x-real-ip']
+    || (req.headers['x-forwarded-for'] || '').toString().split(',')[0].trim()
+    || 'unbekannt'
+  );
 
   if (!process.env.STRATO_SMTP_USER || !process.env.STRATO_SMTP_PASS) {
     console.error('STRATO_SMTP_USER/STRATO_SMTP_PASS fehlen als Vercel-Umgebungsvariablen.');
@@ -56,6 +70,14 @@ module.exports = async (req, res) => {
     '',
     'Nachricht:',
     nachricht || '–',
+    '',
+    `Einwilligungen (bestätigt am ${zeitpunkt} Uhr, IP-Adresse ${ipAdresse}):`,
+    '- Datenschutzerklärung bestätigt: Ja',
+    '  Wortlaut: "Es gilt die Datenschutzerklärung der ibras® GmbH & Co. KG."',
+    `- Kontakt-Einwilligung (weitere Ansprache erlaubt): ${kontakteinwilligung ? 'Ja' : 'Nein'}`,
+    '  Wortlaut: "Ich bin außerdem damit einverstanden, dass ibras® mich gelegentlich per',
+    '  E-Mail mit für mich relevanten Einschätzungen zum Maklermarkt kontaktiert. Ein',
+    '  Widerruf ist jederzeit formlos möglich."',
   ].join('\n');
 
   try {
