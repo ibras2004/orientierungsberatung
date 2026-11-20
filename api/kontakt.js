@@ -19,6 +19,11 @@ function getPgPool() {
   return pgPool;
 }
 
+// Limit pro IP (Best-Effort im Instanzspeicher): 3 Anfragen pro Stunde.
+const RATE_MAX = 3;
+const RATE_FENSTER_MS = 60 * 60 * 1000;
+const rateLimit = new Map();
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, '&amp;')
@@ -53,8 +58,76 @@ module.exports = async (req, res) => {
   const nachricht = (body.Nachricht || '').toString().trim();
   const kontakteinwilligung = (body.Kontakteinwilligung || '').toString().trim() === 'ja';
 
+  const ipFuerLimit = (
+    req.headers['x-real-ip']
+    || (req.headers['x-forwarded-for'] || '').toString().split(',')[0].trim()
+    || 'unbekannt'
+  );
+
+  // --- Spam-Schutz ---------------------------------------------------------
+  // Bei Bot-Verdacht stillschweigend "Erfolg" melden, damit der Bot nichts
+  // lernt. Es wird weder Mail versendet noch etwas gespeichert.
+  const stillVerwerfen = () => {
+    res.writeHead(303, { Location: erfolgsUrl });
+    res.end();
+  };
+
+  // 1) Honeypot: fuer Menschen unsichtbares Feld, Bots fuellen es aus.
+  if ((body.Webseite || '').toString().trim() !== '') {
+    stillVerwerfen();
+    return;
+  }
+
+  // 2) Zeitpruefung: Formular muss mindestens 3 Sekunden (und hoechstens
+  // 24 Stunden) offen gewesen sein. Fehlender/ungueltiger Zeitstempel = Bot.
+  const geladenUm = Number((body._t || '').toString());
+  const dauerMs = Date.now() - geladenUm;
+  if (!Number.isFinite(geladenUm) || dauerMs < 3000 || dauerMs > 24 * 60 * 60 * 1000) {
+    stillVerwerfen();
+    return;
+  }
+
+  // 3) Limit pro IP: max. 3 Anfragen pro Stunde. Zaehler liegt im Speicher der
+  // Serverless-Instanz (Best-Effort, wird bei Kaltstart zurueckgesetzt).
+  const jetzt = Date.now();
+  const versuche = (rateLimit.get(ipFuerLimit) || []).filter((t) => jetzt - t < RATE_FENSTER_MS);
+  if (versuche.length >= RATE_MAX) {
+    res.status(429).send('Zu viele Anfragen von dieser Adresse. Bitte versuchen Sie es später erneut oder rufen Sie uns an: 038827 / 88868.');
+    return;
+  }
+  versuche.push(jetzt);
+  rateLimit.set(ipFuerLimit, versuche);
+  if (rateLimit.size > 500) {
+    for (const [ip, zeiten] of rateLimit) {
+      if (!zeiten.some((t) => jetzt - t < RATE_FENSTER_MS)) rateLimit.delete(ip);
+    }
+  }
+
+  // 4) Inhaltliche Pruefungen
   if (!name || !email) {
     res.status(400).send('Name und E-Mail-Adresse sind erforderlich.');
+    return;
+  }
+  if (!(body.Datenschutz && body.Datenschutz.toString().trim() === 'ja')) {
+    res.status(400).send('Bitte bestätigen Sie die Datenschutzerklärung.');
+    return;
+  }
+  const emailOk = /^[^\s@<>",;]+@[^\s@<>",;]+\.[^\s@<>",;]{2,}$/.test(email);
+  if (!emailOk || email.length > 254) {
+    res.status(400).send('Bitte geben Sie eine gültige E-Mail-Adresse an.');
+    return;
+  }
+  if (name.length > 100 || telefon.length > 40 || anliegen.length > 100 || nachricht.length > 3000) {
+    res.status(400).send('Eine der Eingaben ist zu lang.');
+    return;
+  }
+  if (/[\r\n]/.test(name) || /[\r\n]/.test(email)) {
+    res.status(400).send('Ungültige Eingabe.');
+    return;
+  }
+  const anzahlLinks = (`${name} ${nachricht}`.match(/https?:\/\/|www\./gi) || []).length;
+  if (anzahlLinks > 1) {
+    res.status(400).send('Bitte senden Sie höchstens einen Link in Ihrer Nachricht. Rufen Sie uns bei Fragen gern an: 038827 / 88868.');
     return;
   }
 

@@ -2236,6 +2236,12 @@
         </div>
         <form class="booking-form" action="/api/kontakt" method="POST">
           <input type="hidden" name="_redirect" value="/bewertung">
+          <input type="hidden" name="_t" value="">
+          <div aria-hidden="true" style="position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden;">
+            <label for="af-webseite">Webseite (bitte leer lassen)</label>
+            <input type="text" id="af-webseite" name="Webseite" tabindex="-1" autocomplete="off">
+          </div>
+          <script>document.currentScript.previousElementSibling.previousElementSibling.value = Date.now();</script>
           <div class="form-field">
             <label for="af-anliegen">Worum geht es?</label>
             <select id="af-anliegen" name="Anliegen">
@@ -2261,7 +2267,7 @@
             <textarea id="af-nachricht" name="Nachricht" rows="4"></textarea>
           </div>
           <div class="form-check">
-            <input type="checkbox" id="af-privacy" required>
+            <input type="checkbox" id="af-privacy" name="Datenschutz" value="ja" required>
             <label for="af-privacy" style="margin: 0; font-weight: 400;">Es gilt die <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> der ibras<sup>®</sup> GmbH &amp; Co. KG.</label>
           </div>
           <div class="form-check">
